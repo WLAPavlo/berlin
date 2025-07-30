@@ -28,7 +28,7 @@ include_once get_stylesheet_directory() . '/inc/google-maps.php';
 // TinyMCE Customizations
 include_once get_stylesheet_directory() . '/inc/tiny-mce-customizations.php';
 // Gravity Forms Customizations
-include_once get_stylesheet_directory() . '/inc/gravity-forms-customizations.php';
+//include_once get_stylesheet_directory() . '/inc/gravity-forms-customizations.php';
 // Theme Customizations
 include_once get_stylesheet_directory() . '/inc/theme-customizations.php';
 // WooCommerce functionality
@@ -149,3 +149,11 @@ add_image_size( 'large_high', 1024, 0, false );
 
 // Disable gutenberg
 add_filter('use_block_editor_for_post_type', '__return_false');
+
+
+function theme_register_menus() {
+    register_nav_menus( array(
+        'header-menu' => __( 'Header Menu' ),
+    ) );
+}
+add_action( 'after_setup_theme', 'theme_register_menus' );

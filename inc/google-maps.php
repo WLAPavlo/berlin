@@ -2,7 +2,7 @@
 add_filter( 'acf/load_field/type=google_map', function ( $field ) {
     $google_map_api = 'https://maps.googleapis.com/maps/api/js';
     $api_args       = array(
-        'key' => get_theme_mod( 'google_maps_api' ) ?: 'AIzaSyBgg23TIs_tBSpNQa8RC0b7fuV4SOVN840',
+        'key' => get_theme_mod( 'google_maps_api' ) ?: 'AIzaSyCN4V8Qsd-McrN2dridJ6aqIpJGfl9QgXM',
         'language' => 'en',
         'v' => '3.exp'
     );
