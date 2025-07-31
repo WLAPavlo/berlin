@@ -11,7 +11,10 @@ body {
   background: url('../images/backgrounds.jpg') center center;
   background-size: cover;
   background-attachment: fixed;
-  padding-top: 0;
+
+  &:not(.home) {
+    padding-top: 100px; // Add padding for fixed header only on non-home pages
+  }
 }
 
 main {
@@ -238,9 +241,12 @@ img {
   border-radius: 20px 20px 0 0;
   box-shadow: none;
   backdrop-filter: none;
-  margin-top: 0; // Remove negative margin
   position: relative;
   z-index: 10;
+
+  .home & {
+    margin-top: 40px; // Add margin for spacing from slider only on home page
+  }
 }
 
 #back-to-top {

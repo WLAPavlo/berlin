@@ -437,6 +437,136 @@
             },
             "default_value": "",
             "placeholder": "https://example.com/give"
+        },
+        {
+            "key": "field_footer_phone_label",
+            "label": "Phone Label",
+            "name": "phone_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text to display before phone number",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "OFFICE PHONE",
+            "placeholder": "OFFICE PHONE"
+        },
+        {
+            "key": "field_footer_address_label",
+            "label": "Address Label",
+            "name": "address_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text to display before address",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Address"
+        },
+        {
+            "key": "field_footer_schedule_label",
+            "label": "Schedule Label",
+            "name": "schedule_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text to display before schedule",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Schedule"
+        },
+        {
+            "key": "field_footer_give_label",
+            "label": "Give Label",
+            "name": "give_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text to display for giving section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "GIVE to BFBC",
+            "placeholder": "GIVE to BFBC"
+        },
+        {
+            "key": "field_footer_website_design",
+            "label": "Website Design Text",
+            "name": "website_design_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Text for website design attribution in footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<a href=\"https://d3corp.com/\" target=\"_blank\">Website Design by D3</a> <a href=\"https://visitoceancity.com/\" target=\"_blank\">Ocean City, Maryland</a>",
+            "allow_in_bindings": 0,
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_footer_background_color",
+            "label": "Footer Background Color",
+            "name": "footer_background_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Background color for the footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#2f3a55",
+            "enable_opacity": 1,
+            "return_format": "string",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_footer_icon_size",
+            "label": "Footer Icon Size",
+            "name": "footer_icon_size",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Size of footer icons in pixels",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 80,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 40,
+            "max": 120,
+            "step": ""
         }
     ],
     "location": [
