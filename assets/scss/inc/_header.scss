@@ -1,38 +1,37 @@
 .header {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 1000;
-	background: rgba(255, 255, 255, 0.95);
-	backdrop-filter: blur(10px);
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	padding: 10px 0;
+	z-index: 1030;
+	width: 100%;
+	background: transparent;
+	backdrop-filter: none;
+	box-shadow: none;
+	padding: 30px 0;
+	transition: all 0.3s ease;
 }
 
-body {
-	padding-top: 80px; // Account for fixed header
+.menu-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 40px;
 }
 
 .logo {
-	h1 {
-		font-size: 0;
-	}
-
 	a {
 		display: inline-block;
 	}
 
 	img {
-		max-height: 150px;
-		max-height: 60px; // Smaller logo for fixed header
+		max-height: 50px;
+		filter: none;
 	}
 }
 
 @include media-breakpoint-down(sm) {
-
 	.navbar-toggler {
-		margin: 10px $grid-gutter-width / 2;
+		margin: 10px 0;
 		border: none;
 		background-color: transparent;
 
@@ -44,37 +43,41 @@ body {
 	}
 
 	.navbar {
-		background-color: $main-color;
+		background-color: rgba(255, 255, 255, 0.98);
+		backdrop-filter: blur(10px);
+		border-radius: 10px;
+		margin-top: 10px;
 	}
 
 	.navbar-nav {
 		margin-left: 0;
+		padding: 10px 0;
 
 		.nav-item {
 			> a {
-				// Regular menu link
 				padding: $nav-link-padding-y $nav-link-padding-x;
-				background: $main-color; /* menu item background color */
-				color: #fff; /* menu item text color */
+				background: transparent;
+				color: #333;
 
 				&:hover {
-					background: darken($main-color, 5); /* menu item background color on hover */
+					background: rgba(237, 189, 45, 0.1);
+					color: #f39c12;
 				}
 			}
 
 			&.active {
 				> a, > .submenu-toggle {
-					background: lighten($main-color, 5); /* current/parent menu item background color */
+					background: #f39c12;
+					color: white;
 				}
 			}
 
 			&.show {
 				> a, > .submenu-toggle {
-					background: darken($main-color, 3); /* menu item background color on open dropdown */
+					background: rgba(237, 189, 45, 0.1);
 				}
 			}
 
-			// Dropdown toggle arrow
 			.submenu-toggle {
 				position: absolute;
 				top: 0;
@@ -101,7 +104,6 @@ body {
 			}
 		}
 
-		// Link with dropdown toggle arrow
 		.dropdown-toggle {
 			padding-right: 40px;
 		}
@@ -120,44 +122,33 @@ body {
 	}
 }
 
-@include media-breakpoint-up(md) {
-
+@include media-breakpoint-up(lg) {
 	.navbar-nav {
-		/* Align menu items to the right */
 		justify-content: flex-end;
-		/* Align menu items to the center */
-		//justify-content: center;
-
+		align-items: center;
 		margin-left: 0;
 	}
 
 	.nav-link {
-		/* Regular menu item style */
 		background-color: transparent;
-		color: #333;
-		font-weight: 600;
+		color: white;
+		font-weight: 500;
 		text-transform: uppercase;
-		font-size: 14px;
+		font-size: 13px;
 		letter-spacing: 0.5px;
-		padding: 10px 20px;
-		border-radius: 5px;
+		padding: 12px 18px;
+		border-radius: 0;
 		transition: all 0.3s ease;
 
 		&:hover {
-			/* menu item style on hover */
-			background: #f39c12;
-			color: white;
+			color: #edbd2d;
 		}
 	}
 
 	.nav-item {
 		&.active {
 			> a {
-				/** Style of Current page and Ancestor page. Default WP classes are replaced with `active` class
-				 *	@see class-bootstrap-navigation.php - add_nav_item_bootstrap_classes()
-				 */
-				background: #f39c12;
-				color: white;
+				color: #edbd2d;
 			}
 		}
 
@@ -171,27 +162,59 @@ body {
 			}
 
 			&:hover > a {
-				/* Parent link style on dropdown hover */
-				background: invert($main-color);
-				color: $main-color;
+				color: #edbd2d;
+			}
+		}
+
+		// Special styling for GIVE button
+		&.menu-item-has-children:last-child,
+		&:last-child {
+			> a {
+				background: #edbd2d;
+				color: white;
+				font-weight: 700;
+				padding: 12px 30px;
+				border-radius: 25px;
+				margin-left: 10px;
+				transition: all 0.3s ease;
+				text-transform: uppercase;
+				border: 2px solid #edbd2d;
+
+				&:hover {
+					background: transparent;
+					color: #edbd2d;
+					transform: translateY(-1px);
+					box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
+				}
+			}
+
+			&.active > a {
+				background: darken(#edbd2d, 10%);
 			}
 		}
 	}
 
 	.dropdown-menu {
+		background: white;
+		backdrop-filter: blur(15px);
+		border: none;
+		border-radius: 10px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
 		.nav-item {
 			> a {
-				/* Regular link in dropdown */
+				color: #333;
 
 				&:hover {
-					/* Dropdown link on hover */
+					background: rgba(237, 189, 45, 0.1);
+					color: #f39c12;
 				}
 			}
 
 			&.active {
 				> a {
-					/* Active menu item in dropdown */
-
+					background: #edbd2d;
+					color: white;
 				}
 			}
 		}
@@ -200,4 +223,9 @@ body {
 			/* Styles for 2nd level dropdown menu */
 		}
 	}
+}
+
+// Ensure header doesn't interfere with slider
+#home-slider {
+	position: relative;
 }

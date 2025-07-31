@@ -246,7 +246,7 @@ function home_slider_template() { ?>
                     <div class="slick-slide__inner" <?php bg( get_attached_img_url( get_the_ID(), 'full_hd' ) ); ?>>
                         <?php $bg_video_url = get_post_meta( get_the_ID(), 'slide_video_bg', true ); ?>
                         <?php if ( get_post_format() == 'video' && $bg_video_url ): ?>
-                            <div class="videoHolder show-for-large" data-ratio="<?php echo get_post_meta( get_the_ID(), 'video_aspect_ratio', true ) ?: '16:9'; ?>">
+                            <div class="videoHolder" data-ratio="<?php echo get_post_meta( get_the_ID(), 'video_aspect_ratio', true ) ?: '16:9'; ?>">
                                 <?php
                                 $allowed_video_format = array(
                                     'webm' => 'video/webm',
@@ -264,35 +264,31 @@ function home_slider_template() { ?>
                             </div>
                         <?php endif; ?>
 
-                        <div class="container slider-caption">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h3><?php the_title(); ?></h3>
-                                    <div class="slider-content">
-                                        <?php the_content(); ?>
-                                    </div>
-                                    <?php if ( have_rows( 'slider_buttons' ) ): ?>
-                                        <div class="slider-buttons">
-                                            <?php $button_count = 0; ?>
-                                            <?php while ( have_rows( 'slider_buttons' ) ): the_row(); ?>
-                                                <?php
-                                                $button_text = get_sub_field( 'button_text' );
-                                                $button_link = get_sub_field( 'button_link' );
-                                                $button_count++;
-                                                $btn_class = $button_count === 1 ? 'btn-primary' : 'btn-secondary';
-                                                ?>
-                                                <?php if ( $button_text && $button_link ): ?>
-                                                    <a href="<?php echo esc_url( $button_link['url'] ); ?>"
-                                                       class="slider-btn <?php echo $btn_class; ?>"
-                                                       <?php if ( $button_link['target'] ): ?>target="<?php echo esc_attr( $button_link['target'] ); ?>"<?php endif; ?>>
-                                                        <?php echo esc_html( $button_text ); ?>
-                                                    </a>
-                                                <?php endif; ?>
-                                            <?php endwhile; ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
+                        <div class="slider-caption">
+                            <h3><?php the_title(); ?></h3>
+                            <div class="slider-content">
+                                <?php the_content(); ?>
                             </div>
+                            <?php if ( have_rows( 'slider_buttons' ) ): ?>
+                                <div class="slider-buttons">
+                                    <?php $button_count = 0; ?>
+                                    <?php while ( have_rows( 'slider_buttons' ) ): the_row(); ?>
+                                        <?php
+                                        $button_text = get_sub_field( 'button_text' );
+                                        $button_link = get_sub_field( 'button_link' );
+                                        $button_count++;
+                                        $btn_class = $button_count === 1 ? 'btn-primary' : 'btn-secondary';
+                                        ?>
+                                        <?php if ( $button_text && $button_link ): ?>
+                                            <a href="<?php echo esc_url( $button_link['url'] ); ?>"
+                                               class="slider-btn <?php echo $btn_class; ?>"
+                                               <?php if ( $button_link['target'] ): ?>target="<?php echo esc_attr( $button_link['target'] ); ?>"<?php endif; ?>>
+                                                <?php echo esc_html( $button_text ); ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
 

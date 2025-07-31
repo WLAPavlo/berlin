@@ -15,29 +15,45 @@
 }
 
 #home-slider {
+	position: relative;
+	width: 90%; // Changed from 100% to 90%
+	max-width: 1400px; // Add max-width for very large screens
+	height: 80vh; // Changed from 100vh to 80vh
+	min-height: 500px; // Reduced min-height
+	background: #f5f5f5;
+	margin: 0 auto 60px auto; // Remove top margin, keep bottom margin
+	border-radius: 20px; // Add border radius to match the design
+	overflow: hidden; // Ensure content doesn't overflow rounded corners
+
 	.slick-slide {
 		width: 100%;
-		height: 70vh; /*define the height of slide*/
+		height: 80vh; // Match container height
+		min-height: 500px; // Match container min-height
 		transition: height 0.3s ease;
-
-		@include media-breakpoint-down(md) {
-			height: 60vh;
-		}
-
-		@include media-breakpoint-down(sm) {
-			height: 50vh;
-		}
 	}
 
 	.slick-slide__inner {
 		position: relative;
 		height: 100%;
-		border-radius: 20px;
+		width: 100%;
+		margin: 0;
+		border-radius: 20px; // Match container border radius
 		overflow: hidden;
-		margin: 20px;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		box-shadow: none;
 
 		@extend %bgcover;
+
+		// Ensure the slider content is centered and has proper width
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.3);
+			z-index: 1;
+		}
 	}
 
 	.slider-caption {
@@ -48,19 +64,23 @@
 		text-align: center;
 		color: white;
 		z-index: 2;
+		max-width: 800px;
+		padding: 0 20px;
 
 		h3 {
-			font-size: 3rem;
+			font-size: 4rem;
 			font-weight: 700;
+			font-size: 80px;
+			font-weight: 600;
 			margin-bottom: 2rem;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
 			@include media-breakpoint-down(md) {
-				font-size: 2.5rem;
+				font-size: 60px;
 			}
 
 			@include media-breakpoint-down(sm) {
-				font-size: 2rem;
+				font-size: 40px;
 			}
 		}
 
@@ -77,51 +97,42 @@
 			flex-wrap: wrap;
 
 			.slider-btn {
-				padding: 12px 30px;
-				border: none;
-				border-radius: 25px;
+				padding: 15px 35px;
+				border: 2px solid transparent;
+				border-radius: 50px; // Full rounded pill shape
 				font-weight: 600;
 				text-decoration: none;
 				transition: all 0.3s ease;
 				display: inline-block;
+				font-size: 16px;
 
 				&.btn-primary {
-					background: #f39c12;
+					background: #edbd2d;
 					color: white;
+					border-color: #edbd2d;
 
 					&:hover {
-						background: #e67e22;
+						background: transparent;
+						color: #edbd2d;
 						transform: translateY(-2px);
-						box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+						box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
 					}
 				}
 
 				&.btn-secondary {
-					background: rgba(255, 255, 255, 0.2);
+					background: #759dfd;
 					color: white;
-					border: 2px solid white;
+					border-color: #759dfd;
 
 					&:hover {
-						background: white;
-						color: #333;
+						background: transparent;
+						color: #759dfd;
 						transform: translateY(-2px);
-						box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+						box-shadow: 0 5px 15px rgba(117, 157, 253, 0.4);
 					}
 				}
 			}
 		}
-	}
-
-	// Overlay for better text readability
-	.slick-slide__inner::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, 0.3);
-		z-index: 1;
 	}
 }
 
@@ -135,33 +146,118 @@
 
 	.video {
 		pointer-events: none;
-
 		@include position-center;
 	}
 }
 
 .slick-arrow {
-	/* Slick arrows global styles */
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	width: 50px;
+	height: 50px;
+	background: rgba(255, 255, 255, 0.2);
+	border: 2px solid white;
+	border-radius: 50%;
+	color: white;
+	font-size: 18px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.3);
+		transform: translateY(-50%) scale(1.1);
+	}
+
+	&.slick-prev {
+		left: 30px;
+	}
+
+	&.slick-next {
+		right: 30px;
+	}
 }
 
 .slick-dots {
-	/* Slick dots global styles */
 	font-size: 0;
 	bottom: 30px;
 	z-index: 10;
+	text-align: center;
 
 	li {
+		display: inline-block;
+		margin: 0 5px;
+
 		&:only-child {
 			display: none;
 		}
 
-		button:before {
-			background-color: rgba(255, 255, 255, 0.5);
+		button {
+			width: 12px;
+			height: 12px;
 			border: 2px solid white;
+			border-radius: 50%;
+			background: transparent;
+			cursor: pointer;
+			transition: all 0.3s ease;
+
+			&:before {
+				display: none;
+			}
+
+			&:hover {
+				background: rgba(255, 255, 255, 0.5);
+			}
 		}
 
-		&.slick-active button:before {
-			background-color: #f39c12;
+		&.slick-active button {
+			background: #edbd2d;
+			border-color: #edbd2d;
+		}
+	}
+}
+
+// Responsive adjustments
+@include media-breakpoint-down(lg) {
+	#home-slider {
+		width: 95%; // Slightly wider on smaller screens
+		.slick-slide__inner {
+			max-width: 100%;
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	#home-slider {
+		width: 95%;
+		height: 70vh;
+		min-height: 450px;
+		margin: 40px auto 40px auto; // Reduce margins on smaller screens
+
+		.slick-slide {
+			height: 70vh;
+			min-height: 450px;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	#home-slider {
+		width: 95%;
+		height: 60vh;
+		min-height: 400px;
+		margin: 30px auto 30px auto; // Further reduce margins on mobile
+
+		.slick-slide {
+			height: 60vh;
+			min-height: 400px;
+		}
+
+		.slider-caption {
+			h3 {
+				font-size: 32px;
+			}
 		}
 	}
 }

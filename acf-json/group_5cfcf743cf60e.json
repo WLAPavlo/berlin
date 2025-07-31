@@ -399,6 +399,44 @@
             "enable_opacity": 0,
             "return_format": "string",
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_footer_schedule",
+            "label": "Schedule",
+            "name": "schedule",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Church service schedule information",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Sunday School: 9:00 AM<br>Sunday Gathering: 10:15 AM<br>AWANA/Student Ministry: 4:45 - 6:00 PM<br>Prayer Meeting 1st Sunday: 5:00 PM<br>Home Bible Study Groups",
+            "allow_in_bindings": 0,
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_footer_give_link",
+            "label": "Give Link",
+            "name": "give_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Link to online giving page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://example.com/give"
         }
     ],
     "location": [
