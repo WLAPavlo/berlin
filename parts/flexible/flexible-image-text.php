@@ -1,19 +1,12 @@
 <?php
-$image_text_module = get_field('image_text_module');
-
-if (!$image_text_module || !$image_text_module['enable_image_text']) {
-    return;
-}
-
-$text_content = $image_text_module['text_content'];
+$image = get_sub_field('image');
+$image_position = get_sub_field('image_position') ?: 'left';
+$image_style = get_sub_field('image_style') ?: 'fitted';
+$text_content = get_sub_field('text_content');
 
 if (!$text_content) {
     return;
 }
-
-$image = $image_text_module['image'];
-$image_position = $image_text_module['image_position'] ?: 'left';
-$image_style = $image_text_module['image_style'] ?: 'fitted';
 
 $reverse_class = $image_position === 'right' ? 'flex-row-reverse' : '';
 $image_style_class = $image_style === 'stylized' ? 'image-text__image--stylized' : 'image-text__image--fitted';

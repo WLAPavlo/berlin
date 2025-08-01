@@ -1,12 +1,6 @@
 <?php
-$tiles_module = get_field('tiles_module');
-
-if (!$tiles_module || !$tiles_module['enable_tiles']) {
-    return;
-}
-
-$section_title = $tiles_module['section_title'];
-$tiles = $tiles_module['tiles'];
+$section_title = get_sub_field('section_title');
+$tiles = get_sub_field('tiles');
 
 if (!$tiles || empty($tiles)) {
     return;
@@ -45,7 +39,7 @@ if (!$tiles || empty($tiles)) {
             }
             ?>
 
-            <div class="col-lg-4 col-md-6 col-12 tile-item-wrapper">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-12 tile-item-wrapper">
                 <<?php echo $tile_tag; ?> class="tile-item" <?php echo $tile_attrs; ?>>
                 <div class="tile-item__image" <?php bg($background_image, 'large'); ?>></div>
                 <div class="tile-item__content">

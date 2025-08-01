@@ -77,43 +77,31 @@
 	var scrollOut;
 	$( document ).on( 'ready', function() {
 
-		// Header scroll behavior
 		var $header = $('.header');
-		var isHomePage = $('body').hasClass('home');
-		var sliderHeight = $('#home-slider').outerHeight() || 850;
-		var headerHeight = $header.outerHeight() || 80;
+		var $slider = $('#home-slider');
+		var hasSlider = $slider.length > 0;
+		var isScrolled = false;
 
 		function updateHeaderOnScroll() {
 			var scrollTop = $(window).scrollTop();
 
-			if (isHomePage) {
-				// On home page, check if we scrolled past the slider
-				var triggerPoint = sliderHeight - headerHeight - 50;
-
-				if (scrollTop > triggerPoint) {
+			if (hasSlider) {
+				if (scrollTop > 0 && !isScrolled) {
 					$header.addClass('header--scrolled');
-				} else {
+					isScrolled = true;
+				} else if (scrollTop <= 0 && isScrolled) {
 					$header.removeClass('header--scrolled');
+					isScrolled = false;
 				}
 			} else {
-				// On other pages, always show header with background
 				$header.addClass('header--default');
+				$('body').addClass('no-slider');
 			}
 		}
 
-		// Initial check
 		updateHeaderOnScroll();
 
-		// Update on scroll
 		$(window).on('scroll', updateHeaderOnScroll);
-
-		// Update on resize (slider height might change on home page)
-		if (isHomePage) {
-			$(window).on('resize', function() {
-				sliderHeight = $('#home-slider').outerHeight() || 850;
-				updateHeaderOnScroll();
-			});
-		}
 
 		// Init LazyLoad
 		var lazyLoadInstance = new LazyLoad({

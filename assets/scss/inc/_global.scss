@@ -1,7 +1,6 @@
 html {
   height: 100%;
 }
-
 body {
   position: static !important;
   display: flex;
@@ -11,7 +10,11 @@ body {
   background: url('../images/backgrounds.jpg') center center;
   background-size: cover;
   background-attachment: fixed;
-  padding-top: 80px; // Add padding for fixed header on all pages
+  padding-top: 1.875rem;
+
+  &.no-slider {
+    padding-top: 80px;
+  }
 }
 
 main {
@@ -239,7 +242,10 @@ img {
   backdrop-filter: none;
   position: relative;
   z-index: 10;
-  margin-top: 40px; // Add margin for spacing from content above
+
+  .no-slider & {
+    margin-top: 40px;
+  }
 }
 
 #back-to-top {

@@ -1,7 +1,6 @@
 .footer {
 	margin-top: auto;
-	background: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний або синій */
-	backdrop-filter: blur(10px); /* Ефект скла */
+	background: rgba(0, 0, 0, 0.5);
 	color: white;
 	padding: 60px 0 0;
 	position: relative;
@@ -63,17 +62,29 @@
 
 .footer-bottom-content {
 	display: flex;
-	flex-direction: row; // Horizontal layout
+	flex-direction: column; // Stack vertically on mobile first
 	align-items: center;
 	justify-content: center;
 	text-align: left;
 	gap: 15px;
 	flex-wrap: wrap;
 
+	@include media-breakpoint-up(md) {
+		flex-direction: row; // Horizontal layout on tablets and up
+		text-align: left;
+	}
+
 	@include media-breakpoint-down(md) {
-		flex-direction: column;
 		text-align: center;
 		gap: 10px;
+	}
+
+	@include media-breakpoint-down(lg) {
+		gap: 10px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		gap: 8px;
 	}
 }
 
@@ -82,23 +93,72 @@
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 15px;
+	justify-content: center;
+
+	@include media-breakpoint-up(md) {
+		justify-content: flex-start;
+	}
 
 	@include media-breakpoint-down(md) {
-		justify-content: center;
 		flex-direction: column;
 		gap: 10px;
+	}
+
+	@include media-breakpoint-down(lg) {
+		gap: 10px;
+		font-size: 13px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		gap: 8px;
+		font-size: 12px;
 	}
 }
 
 .footer-bottom-right {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+
+	@include media-breakpoint-up(md) {
+		justify-content: flex-end;
+	}
+
+	@include media-breakpoint-down(lg) {
+		.stay-tuned__link {
+			width: 40px;
+			height: 40px;
+
+			.fab {
+				font-size: 18px;
+			}
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		.stay-tuned__link {
+			width: 35px;
+			height: 35px;
+
+			.fab {
+				font-size: 16px;
+			}
+		}
+	}
 }
 
 .footer-copyright {
 	color: #ffffff;
 	font-size: 13px;
 	margin: 0;
+
+	@include media-breakpoint-down(lg) {
+		font-size: 12px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		font-size: 11px;
+	}
 
 	a {
 		color: #ffffff;
@@ -118,10 +178,26 @@
 	align-items: center;
 	gap: 15px;
 
+	@include media-breakpoint-down(lg) {
+		gap: 10px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		gap: 8px;
+	}
+
 	a {
 		color: #ffffff;
 		text-decoration: none;
 		font-size: 14px;
+
+		@include media-breakpoint-down(lg) {
+			font-size: 13px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			font-size: 12px;
+		}
 
 		&:hover {
 			color: #ffffff;
@@ -136,12 +212,35 @@
 	flex-wrap: wrap;
 	gap: 15px;
 	margin: 0;
+	justify-content: center;
+
+	@include media-breakpoint-up(md) {
+		justify-content: flex-start;
+	}
+
+	@include media-breakpoint-down(lg) {
+		gap: 10px;
+	}
+
+	@include media-breakpoint-down(sm) {
+		gap: 8px;
+		flex-direction: column;
+		align-items: center;
+	}
 
 	li {
 		a {
 			color: #ffffff;
 			text-decoration: none !important;
 			font-size: 14px;
+
+			@include media-breakpoint-down(lg) {
+				font-size: 13px;
+			}
+
+			@include media-breakpoint-down(sm) {
+				font-size: 12px;
+			}
 
 			&:hover {
 				color: #ffffff;
@@ -153,8 +252,12 @@
 
 .footer-bottom-right {
 	.stay-tuned {
-		justify-content: flex-end;
+		justify-content: center;
 		margin: 0;
+
+		@include media-breakpoint-up(md) {
+			justify-content: flex-end;
+		}
 
 		@include media-breakpoint-down(md) {
 			justify-content: center;
@@ -198,17 +301,17 @@
 	}
 
 	.footer__bottom {
-		padding: 15px 0;
+		padding: 20px 0;
 	}
 
 	.footer-bottom-content {
 		text-align: center;
+		gap: 15px;
 	}
 
 	.footer-bottom-left {
 		font-size: 12px;
-		gap: 10px;
-
+		gap: 15px;
 	}
 
 	#home-slider {

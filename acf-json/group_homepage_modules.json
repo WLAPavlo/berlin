@@ -3,10 +3,10 @@
   "title": "Homepage Content Modules",
   "fields": [
     {
-      "key": "field_image_text_module",
-      "label": "Image with Text Module",
-      "name": "image_text_module",
-      "type": "group",
+      "key": "field_homepage_flexible_content",
+      "label": "Homepage Content",
+      "name": "homepage_content",
+      "type": "flexible_content",
       "instructions": "",
       "required": 0,
       "conditional_logic": 0,
@@ -15,252 +15,23 @@
         "class": "",
         "id": ""
       },
-      "layout": "block",
-      "sub_fields": [
-        {
-          "key": "field_enable_image_text",
-          "label": "Enable Image with Text Section",
-          "name": "enable_image_text",
-          "type": "true_false",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "message": "",
-          "default_value": 0,
-          "ui": 1,
-          "ui_on_text": "",
-          "ui_off_text": ""
-        },
-        {
-          "key": "field_image_text_image",
-          "label": "Image",
-          "name": "image",
-          "type": "image",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_enable_image_text",
-                "operator": "==",
-                "value": "1"
-              }
-            ]
-          ],
-          "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-          },
-          "return_format": "array",
-          "preview_size": "medium",
-          "library": "all",
-          "min_width": "",
-          "min_height": "",
-          "min_size": "",
-          "max_width": "",
-          "max_height": "",
-          "max_size": "",
-          "mime_types": ""
-        },
-        {
-          "key": "field_image_text_position",
-          "label": "Image Position",
-          "name": "image_position",
-          "type": "select",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_enable_image_text",
-                "operator": "==",
-                "value": "1"
-              }
-            ]
-          ],
-          "wrapper": {
-            "width": "25",
-            "class": "",
-            "id": ""
-          },
-          "choices": {
-            "left": "Left",
-            "right": "Right"
-          },
-          "default_value": "left",
-          "allow_null": 0,
-          "multiple": 0,
-          "ui": 0,
-          "return_format": "value",
-          "ajax": 0,
-          "placeholder": ""
-        },
-        {
-          "key": "field_image_text_style",
-          "label": "Image Style",
-          "name": "image_style",
-          "type": "select",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_enable_image_text",
-                "operator": "==",
-                "value": "1"
-              }
-            ]
-          ],
-          "wrapper": {
-            "width": "25",
-            "class": "",
-            "id": ""
-          },
-          "choices": {
-            "fitted": "Fitted to Area (Standard)",
-            "stylized": "Stylized (Rounded with Shadow)"
-          },
-          "default_value": "fitted",
-          "allow_null": 0,
-          "multiple": 0,
-          "ui": 0,
-          "return_format": "value",
-          "ajax": 0,
-          "placeholder": ""
-        },
-        {
-          "key": "field_image_text_content",
-          "label": "Text Content",
-          "name": "text_content",
-          "type": "wysiwyg",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_enable_image_text",
-                "operator": "==",
-                "value": "1"
-              }
-            ]
-          ],
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "tabs": "all",
-          "toolbar": "full",
-          "media_upload": 1,
-          "delay": 0
-        }
-      ]
-    },
-    {
-      "key": "field_tiles_module",
-      "label": "Tiles Module",
-      "name": "tiles_module",
-      "type": "group",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "layout": "block",
-      "sub_fields": [
-        {
-          "key": "field_enable_tiles",
-          "label": "Enable Tiles Section",
-          "name": "enable_tiles",
-          "type": "true_false",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "message": "",
-          "default_value": 0,
-          "ui": 1,
-          "ui_on_text": "",
-          "ui_off_text": ""
-        },
-        {
-          "key": "field_tiles_section_title",
-          "label": "Section Title",
-          "name": "section_title",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_enable_tiles",
-                "operator": "==",
-                "value": "1"
-              }
-            ]
-          ],
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "placeholder": "",
-          "prepend": "",
-          "append": "",
-          "maxlength": ""
-        },
-        {
-          "key": "field_tiles_list",
-          "label": "Tiles",
-          "name": "tiles",
-          "type": "repeater",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": [
-            [
-              {
-                "field": "field_enable_tiles",
-                "operator": "==",
-                "value": "1"
-              }
-            ]
-          ],
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "collapsed": "",
-          "min": 0,
-          "max": 6,
-          "layout": "block",
-          "button_label": "Add Tile",
+      "layouts": {
+        "layout_image_text": {
+          "key": "layout_image_text",
+          "name": "image_text",
+          "label": "Image with Text",
+          "display": "block",
           "sub_fields": [
             {
-              "key": "field_tile_image",
-              "label": "Background Image",
-              "name": "background_image",
+              "key": "field_image_text_image",
+              "label": "Image",
+              "name": "image",
               "type": "image",
               "instructions": "",
-              "required": 1,
+              "required": 0,
               "conditional_logic": 0,
               "wrapper": {
-                "width": "40",
+                "width": "50",
                 "class": "",
                 "id": ""
               },
@@ -273,19 +44,97 @@
               "max_width": "",
               "max_height": "",
               "max_size": "",
-              "mime_types": "",
-              "parent_repeater": "field_tiles_list"
+              "mime_types": ""
             },
             {
-              "key": "field_tile_title",
-              "label": "Title",
-              "name": "title",
-              "type": "text",
+              "key": "field_image_text_position",
+              "label": "Image Position",
+              "name": "image_position",
+              "type": "select",
               "instructions": "",
-              "required": 1,
+              "required": 0,
               "conditional_logic": 0,
               "wrapper": {
-                "width": "30",
+                "width": "25",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "left": "Left",
+                "right": "Right"
+              },
+              "default_value": "left",
+              "allow_null": 0,
+              "multiple": 0,
+              "ui": 0,
+              "return_format": "value",
+              "ajax": 0,
+              "placeholder": ""
+            },
+            {
+              "key": "field_image_text_style",
+              "label": "Image Style",
+              "name": "image_style",
+              "type": "select",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "fitted": "Fitted to Area (Standard)",
+                "stylized": "Stylized (Rounded with Shadow)"
+              },
+              "default_value": "fitted",
+              "allow_null": 0,
+              "multiple": 0,
+              "ui": 0,
+              "return_format": "value",
+              "ajax": 0,
+              "placeholder": ""
+            },
+            {
+              "key": "field_image_text_content",
+              "label": "Text Content",
+              "name": "text_content",
+              "type": "wysiwyg",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_tiles": {
+          "key": "layout_tiles",
+          "name": "tiles",
+          "label": "Tiles",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_tiles_section_title",
+              "label": "Section Title",
+              "name": "section_title",
+              "type": "text",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
                 "class": "",
                 "id": ""
               },
@@ -293,28 +142,214 @@
               "placeholder": "",
               "prepend": "",
               "append": "",
-              "maxlength": "",
-              "parent_repeater": "field_tiles_list"
+              "maxlength": ""
             },
             {
-              "key": "field_tile_link",
-              "label": "Link",
-              "name": "link",
-              "type": "link",
+              "key": "field_tiles_list",
+              "label": "Tiles",
+              "name": "tiles",
+              "type": "repeater",
               "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
-                "width": "30",
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "collapsed": "",
+              "min": 0,
+              "max": 6,
+              "layout": "block",
+              "button_label": "Add Tile",
+              "sub_fields": [
+                {
+                  "key": "field_tile_image",
+                  "label": "Background Image",
+                  "name": "background_image",
+                  "type": "image",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "40",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "medium",
+                  "library": "all",
+                  "min_width": "",
+                  "min_height": "",
+                  "min_size": "",
+                  "max_width": "",
+                  "max_height": "",
+                  "max_size": "",
+                  "mime_types": "",
+                  "parent_repeater": "field_tiles_list"
+                },
+                {
+                  "key": "field_tile_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "30",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "maxlength": "",
+                  "parent_repeater": "field_tiles_list"
+                },
+                {
+                  "key": "field_tile_link",
+                  "label": "Link",
+                  "name": "link",
+                  "type": "link",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "30",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "parent_repeater": "field_tiles_list"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_our_mission": {
+          "key": "layout_our_mission",
+          "name": "our_mission",
+          "label": "Our Mission",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_our_mission_background",
+              "label": "Background Image",
+              "name": "background_image",
+              "type": "image",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
               },
               "return_format": "array",
-              "parent_repeater": "field_tiles_list"
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": "",
+              "min_height": "",
+              "min_size": "",
+              "max_width": "",
+              "max_height": "",
+              "max_size": "",
+              "mime_types": ""
+            },
+            {
+              "key": "field_our_mission_items",
+              "label": "Mission Items",
+              "name": "mission_items",
+              "type": "repeater",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "collapsed": "",
+              "min": 0,
+              "max": 6,
+              "layout": "block",
+              "button_label": "Add Mission Item",
+              "sub_fields": [
+                {
+                  "key": "field_mission_item_icon",
+                  "label": "Icon/Image",
+                  "name": "icon",
+                  "type": "image",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "30",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "thumbnail",
+                  "library": "all",
+                  "min_width": "",
+                  "min_height": "",
+                  "min_size": "",
+                  "max_width": "",
+                  "max_height": "",
+                  "max_size": "",
+                  "mime_types": "",
+                  "parent_repeater": "field_our_mission_items"
+                },
+                {
+                  "key": "field_mission_item_link",
+                  "label": "Learn More Link",
+                  "name": "link",
+                  "type": "link",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "35",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "parent_repeater": "field_our_mission_items"
+                },
+                {
+                  "key": "field_mission_item_content",
+                  "label": "Content",
+                  "name": "content",
+                  "type": "wysiwyg",
+                  "instructions": "",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "tabs": "all",
+                  "toolbar": "full",
+                  "media_upload": 1,
+                  "delay": 0,
+                  "parent_repeater": "field_our_mission_items"
+                }
+              ]
             }
-          ]
+          ],
+          "min": "",
+          "max": ""
         }
-      ]
+      },
+      "button_label": "Add Row",
+      "min": "",
+      "max": ""
     }
   ],
   "location": [

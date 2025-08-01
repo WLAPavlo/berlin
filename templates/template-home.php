@@ -9,8 +9,15 @@ get_header(); ?>
 <!--END of HOME PAGE SLIDER-->
 
 <!-- BEGIN of homepage modules -->
-<?php get_template_part('parts/homepage-image-text'); ?>
-<?php get_template_part('parts/homepage-tiles'); ?>
+<?php if (have_rows('homepage_content')): ?>
+    <?php while (have_rows('homepage_content')): the_row(); ?>
+        <?php
+        $layout = get_row_layout();
+        $template_file = 'parts/flexible/flexible-' . str_replace('_', '-', $layout);
+        get_template_part($template_file);
+        ?>
+    <?php endwhile; ?>
+<?php endif; ?>
 <!-- END of homepage modules -->
 
 <!-- BEGIN of main content -->
