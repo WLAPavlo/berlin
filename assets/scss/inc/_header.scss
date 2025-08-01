@@ -5,24 +5,59 @@
 	right: 0;
 	z-index: 1030;
 	width: 100%;
-	background: rgba(47, 58, 85, 0.95);
-	backdrop-filter: blur(10px);
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	padding: 15px 0;
+	background: transparent;
+	backdrop-filter: none;
+	box-shadow: none;
+	padding: 20px 0;
 	transition: all 0.3s ease;
 
-	// When inside slider, make it transparent
-	.home & {
+	// When scrolled down or not on home page
+	&.header--scrolled,
+	&.header--default {
+		background: rgba(47, 58, 85, 0.95);
+		backdrop-filter: blur(10px);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		padding: 15px 0;
+	}
+
+	// Special styling when header is inside slider
+	&.header--in-slider {
+		position: absolute;
+		top: 20px;
 		background: transparent;
 		backdrop-filter: none;
 		box-shadow: none;
+		padding: 0;
+		z-index: 10;
+
+		// When scrolled, make it fixed with background
+		&.header--scrolled {
+			position: fixed;
+			top: 0;
+			background: rgba(47, 58, 85, 0.95);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			padding: 15px 0;
+		}
 	}
 }
 
 .menu-container {
 	max-width: 1600px;
 	margin: 0 auto;
-	padding: 0 30px 0 60px; // Left padding for logo, no right padding for menu
+	padding: 0 30px 0 60px;
+
+	.header--in-slider & {
+		padding: 0 40px 0 60px;
+
+		@include media-breakpoint-down(lg) {
+			padding: 0 30px 0 40px;
+		}
+
+		@include media-breakpoint-down(md) {
+			padding: 0 20px;
+		}
+	}
 
 	@include media-breakpoint-down(lg) {
 		padding: 0 20px 0 40px;
@@ -39,8 +74,34 @@
 	}
 
 	img {
-		max-height: 50px;
+		max-height: 60px;
 		filter: none;
+		transition: all 0.3s ease;
+
+		@include media-breakpoint-down(md) {
+			max-height: 50px;
+		}
+	}
+
+	.header--scrolled & img,
+	.header--default & img {
+		max-height: 50px;
+
+		@include media-breakpoint-down(md) {
+			max-height: 40px;
+		}
+	}
+
+	.header--in-slider & img {
+		max-height: 60px;
+
+		@include media-breakpoint-down(md) {
+			max-height: 50px;
+		}
+	}
+
+	.header--in-slider.header--scrolled & img {
+		max-height: 50px;
 
 		@include media-breakpoint-down(md) {
 			max-height: 40px;
@@ -168,7 +229,7 @@
 		justify-content: flex-end;
 		align-items: center;
 		margin-left: 0;
-		margin-right: 0; // Remove right margin
+		margin-right: 0;
 	}
 
 	.nav-link {
@@ -176,7 +237,7 @@
 		color: white;
 		font-weight: 500;
 		text-transform: uppercase;
-		font-size: 16px; // Set menu text size to 16px
+		font-size: 16px;
 		letter-spacing: 0.5px;
 		padding: 12px 18px;
 		border-radius: 0;
@@ -215,7 +276,7 @@
 				color: white;
 				font-weight: 700;
 				padding: 12px 30px;
-				border-radius: 25px 0 25px 25px; // Square right corner
+				border-radius: 25px 0 25px 25px;
 				margin-left: 10px;
 				transition: all 0.3s ease;
 				text-transform: uppercase;
@@ -265,9 +326,4 @@
 			/* Styles for 2nd level dropdown menu */
 		}
 	}
-}
-
-// Ensure header doesn't interfere with slider
-#home-slider {
-	position: relative;
 }

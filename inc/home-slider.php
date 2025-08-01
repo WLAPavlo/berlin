@@ -151,38 +151,6 @@ function display_metaboxes() {
 // Create HOME Slider
 function home_slider_template() { ?>
 
-    <!-- BEGIN of header inside slider -->
-    <header class="header">
-        <div class="container-fluid menu-container">
-            <div class="row no-gutters-xs">
-                <div class="col-auto">
-                    <div class="logo">
-                        <?php show_custom_logo(); ?>
-                    </div>
-                </div>
-                <div class="col">
-                    <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-                        <div class="navbar navbar-expand-lg">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <nav class="collapse navbar-collapse" id="mainMenu">
-                                <?php wp_nav_menu( array(
-                                    'theme_location' => 'header-menu',
-                                    'menu_class'     => 'header-menu navbar-nav ml-auto',
-                                    'container'      => false,
-                                    'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                                    'walker'         => new Bootstrap_Navigation(),
-                                ) ); ?>
-                            </nav>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- END of header inside slider -->
-
     <script type="text/javascript">
 
         // Send command to iframe youtube player

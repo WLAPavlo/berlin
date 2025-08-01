@@ -77,6 +77,44 @@
 	var scrollOut;
 	$( document ).on( 'ready', function() {
 
+		// Header scroll behavior
+		var $header = $('.header');
+		var isHomePage = $('body').hasClass('home');
+		var sliderHeight = $('#home-slider').outerHeight() || 850;
+		var headerHeight = $header.outerHeight() || 80;
+
+		function updateHeaderOnScroll() {
+			var scrollTop = $(window).scrollTop();
+
+			if (isHomePage) {
+				// On home page, check if we scrolled past the slider
+				var triggerPoint = sliderHeight - headerHeight - 50;
+
+				if (scrollTop > triggerPoint) {
+					$header.addClass('header--scrolled');
+				} else {
+					$header.removeClass('header--scrolled');
+				}
+			} else {
+				// On other pages, always show header with background
+				$header.addClass('header--default');
+			}
+		}
+
+		// Initial check
+		updateHeaderOnScroll();
+
+		// Update on scroll
+		$(window).on('scroll', updateHeaderOnScroll);
+
+		// Update on resize (slider height might change on home page)
+		if (isHomePage) {
+			$(window).on('resize', function() {
+				sliderHeight = $('#home-slider').outerHeight() || 850;
+				updateHeaderOnScroll();
+			});
+		}
+
 		// Init LazyLoad
 		var lazyLoadInstance = new LazyLoad({
 			elements_selector: 'img[data-lazy-src],.pre-lazyload',

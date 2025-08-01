@@ -1,10 +1,13 @@
 .footer {
 	margin-top: auto;
-	background: rgba(47, 58, 85, 0.7) !important; // Default background, can be overridden via admin
-	backdrop-filter: blur(10px);
+	background: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний або синій */
+	backdrop-filter: blur(10px); /* Ефект скла */
 	color: white;
 	padding: 60px 0 0;
+	position: relative;
+	z-index: 1;
 }
+
 
 .footer-section {
 	display: flex;
@@ -43,20 +46,14 @@
 
 	a {
 		color: white;
-		text-decoration: none;
+		text-decoration: none !important;
 
 		&:hover {
 			color: #edbd2d;
-			text-decoration: underline;
+			text-decoration: underline !important;
 		}
 	}
 
-	strong {
-		display: block;
-		margin-bottom: 10px;
-		font-size: 16px;
-		color: white;
-	}
 }
 
 .footer__bottom {
@@ -105,11 +102,12 @@
 
 	a {
 		color: #ffffff;
-		text-decoration: none;
+		text-decoration: none !important;
+		transition: color 0.3s ease;
 
 		&:hover {
-			color: #ffffff;
-			text-decoration: underline;
+			color: #edbd2d; // Gold color on hover
+			text-decoration: underline !important;
 		}
 	}
 }
@@ -142,12 +140,12 @@
 	li {
 		a {
 			color: #ffffff;
-			text-decoration: none;
+			text-decoration: none !important;
 			font-size: 14px;
 
 			&:hover {
 				color: #ffffff;
-				text-decoration: underline;
+				text-decoration: underline !important;
 			}
 		}
 	}
@@ -164,8 +162,7 @@
 	}
 
 	.stay-tuned__link {
-		background: #edbd2d; // Use gold color for social icons
-		border-radius: 50%;
+		background: transparent; // Remove background for social icons
 		width: 45px; // Slightly larger social icons
 		height: 45px;
 		display: flex;
@@ -175,13 +172,18 @@
 		text-decoration: none;
 
 		&:hover {
-			background: darken(#edbd2d, 10%);
+			background: transparent;
 			transform: translateY(-2px);
+
+			.fab {
+				color: #ffffff !important;
+			}
 		}
 
 		.fab {
-			color: white;
+			color: #edbd2d; // Gold color for social icons
 			font-size: 20px; // Larger social icons
+			transition: color 0.3s ease;
 		}
 	}
 }
@@ -220,4 +222,9 @@
 			min-height: 400px;
 		}
 	}
+}
+
+
+pre{
+	color: #ffffff;
 }

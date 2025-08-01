@@ -8,6 +8,11 @@ get_header(); ?>
 <?php home_slider_template(); ?>
 <!--END of HOME PAGE SLIDER-->
 
+<!-- BEGIN of homepage modules -->
+<?php get_template_part('parts/homepage-image-text'); ?>
+<?php get_template_part('parts/homepage-tiles'); ?>
+<!-- END of homepage modules -->
+
 <!-- BEGIN of main content -->
 <div class="container">
     <div class="row">

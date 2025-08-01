@@ -15,15 +15,11 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="footer-content">
-                        <?php if ( $address_label = get_field( 'address_label', 'options' ) ): ?>
-                            <strong><?php echo esc_html( $address_label ); ?></strong>
-                        <?php endif; ?>
-
                         <?php if ( $address = get_field( 'address', 'options' ) ): ?>
                             <?php $map_url = 'https://www.google.com/maps/search/?api=1&query=' . urlencode( $address ); ?>
                             <address>
                                 <a href="<?php echo esc_url( $map_url ); ?>" target="_blank" rel="noopener noreferrer">
-                                    <?php echo esc_html( $address ); ?>
+                                    <?php echo str_replace(' ST ', ' ST<br>', esc_html( $address )); ?>
                                 </a>
                             </address>
                         <?php endif; ?>
@@ -39,9 +35,6 @@
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <div class="footer-content">
-                        <?php if ( $phone_label = get_field( 'phone_label', 'options' ) ): ?>
-                            <strong><?php echo $phone_label; ?></strong>
-                        <?php endif; ?>
                         <?php if ( $phone = get_field( 'phone', 'options' ) ): ?>
                             <p><a href="tel:<?php echo sanitize_number( $phone ); ?>"><?php echo $phone; ?></a></p>
                         <?php endif; ?>
@@ -56,9 +49,6 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="footer-content">
-                        <?php if ( $schedule_label = get_field( 'schedule_label', 'options' ) ): ?>
-                            <strong><?php echo $schedule_label; ?></strong>
-                        <?php endif; ?>
                         <?php if ( $schedule = get_field( 'schedule', 'options' ) ): ?>
                             <?php echo $schedule; ?>
                         <?php endif; ?>
@@ -74,10 +64,11 @@
                     </div>
                     <div class="footer-content">
                         <?php if ( $give_label = get_field( 'give_label', 'options' ) ): ?>
-                            <strong><?php echo $give_label; ?></strong>
-                        <?php endif; ?>
-                        <?php if ( $give_link = get_field( 'give_link', 'options' ) ): ?>
-                            <p><a href="<?php echo esc_url( $give_link ); ?>" target="_blank">Give Online</a></p>
+                            <?php if ( $give_link = get_field( 'give_link', 'options' ) ): ?>
+                                <a href="<?php echo esc_url( $give_link ); ?>" target="_blank"><?php echo $give_label; ?></a>
+                            <?php else: ?>
+                                <?php echo $give_label; ?>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -104,11 +95,6 @@
                                 ) );
                             }
                             ?>
-                            <a href="<?php echo home_url('/sitemap/'); ?>">Site Map</a>
-                            <a href="<?php echo home_url('/accessibility/'); ?>">Accessibility</a>
-                            <?php if ( $website_design_text = get_field( 'website_design_text', 'options' ) ): ?>
-                                <?php echo $website_design_text; ?>
-                            <?php endif; ?>
                         </div>
 
                         <div class="footer-bottom-right">
