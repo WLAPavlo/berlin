@@ -126,25 +126,6 @@
           "display": "block",
           "sub_fields": [
             {
-              "key": "field_tiles_section_title",
-              "label": "Section Title",
-              "name": "section_title",
-              "type": "text",
-              "instructions": "",
-              "required": 0,
-              "conditional_logic": 0,
-              "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-              },
-              "default_value": "",
-              "placeholder": "",
-              "prepend": "",
-              "append": "",
-              "maxlength": ""
-            },
-            {
               "key": "field_tiles_list",
               "label": "Tiles",
               "name": "tiles",
@@ -341,6 +322,96 @@
                   "parent_repeater": "field_our_mission_items"
                 }
               ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_contact_form_map": {
+          "key": "layout_contact_form_map",
+          "name": "contact_form_map",
+          "label": "Contact Form with Map",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_contact_background_image",
+              "label": "Background Image",
+              "name": "background_image",
+              "type": "image",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": "",
+              "min_height": "",
+              "min_size": "",
+              "max_width": "",
+              "max_height": "",
+              "max_size": "",
+              "mime_types": ""
+            },
+            {
+              "key": "field_contact_content",
+              "label": "Content",
+              "name": "content",
+              "type": "wysiwyg",
+              "instructions": "Main content for the contact section. You can add form shortcode here: [gravityform id=\"1\" title=\"false\" description=\"false\" ajax=\"true\"]",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "<h2>Contact Us</h2>\n<p>Questions or Comments?</p>\n[gravityform id=\"1\" title=\"false\" description=\"false\" ajax=\"true\"]",
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0
+            },
+            {
+              "key": "field_map_content",
+              "label": "Map Content",
+              "name": "map_content",
+              "type": "wysiwyg",
+              "instructions": "Content for the map section including title, address and map",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "<h2>Visit Us</h2>\n<p>613 William St. Berlin, MD 21811</p>",
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0
+            },
+            {
+              "key": "field_google_map",
+              "label": "Google Map",
+              "name": "google_map",
+              "type": "google_map",
+              "instructions": "Select location on the map",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "center_lat": "38.3269",
+              "center_lng": "-75.2174",
+              "zoom": 12,
+              "height": ""
             }
           ],
           "min": "",
