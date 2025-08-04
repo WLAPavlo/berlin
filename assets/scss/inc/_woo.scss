@@ -109,16 +109,16 @@
 		display: flex;
 		flex-flow: wrap;
 		width: auto;
-		margin-right: #{-$col-gap / 2};
-		margin-left: #{-$col-gap / 2};
+		margin-right: #{-$col-gap * 0.5};
+		margin-left: #{-$col-gap * 0.5};
 
 		.col-1, .col-2 {
 			float: none;
 			flex: 0 0 50%;
 			width: auto;
 			max-width: 50%;
-			padding-right: #{$col-gap / 2};
-			padding-left: #{$col-gap / 2};
+			padding-right: #{$col-gap * 0.5};
+			padding-left: #{$col-gap * 0.5};
 		}
 	}
 }
@@ -146,12 +146,13 @@ $product-gap: 30px;
 	ul.products {
 		display: flex;
 		flex-flow: row wrap;
-		margin-right: #{-$product-gap / 2};
-		margin-left: #{-$product-gap / 2};
+		margin-right: #{-$product-gap * 0.5};
+		margin-left: #{-$product-gap * 0.5};
 
 		li.product {
 			flex: 0 0 auto;
-			width: calc(100% - #{$product-gap});
+			width: 100%;
+			margin-bottom: $product-gap;
 			min-width: 0;
 			min-height: 0;
 
@@ -180,10 +181,10 @@ $product-gap: 30px;
 
 		&[class*='columns-'] {
 			li.product {
-				width: calc(100% - #{$product-gap});
-				margin-right: #{$product-gap / 2};
+				width: 100%;
+				margin-right: #{$product-gap * 0.5};
 				margin-bottom: $product-gap;
-				margin-left: #{$product-gap / 2};
+				margin-left: #{$product-gap * 0.5};
 
 				@media only screen and (min-width: 441px) and (max-width: 992px) {
 					width: calc(50% - #{$product-gap});
@@ -195,7 +196,7 @@ $product-gap: 30px;
 			&.columns-#{$i} {
 				li.product {
 					@include media-breakpoint-up(lg) {
-						width: calc(#{100% / $i} - #{$product-gap});
+						width: calc(#{percentage(1 / $i)} - #{$product-gap});
 					}
 				}
 			}

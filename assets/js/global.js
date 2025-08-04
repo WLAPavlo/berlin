@@ -259,7 +259,7 @@
 
 	$( window ).on( 'load', function() {
 
-		scrollOut.update();
+		/*scrollOut.update();*/
 
 		//jQuery code goes here
 		if ( $( '.preloader' ).length ) {
@@ -287,8 +287,16 @@
 
 		if ( classes.length ) {
 			var menuBreakpoint = classes.replace( 'navbar-expand-', '' );
+			// Handle xl breakpoint specifically
+			if (menuBreakpoint === 'xl') {
+				menuBreakpoint = 'lg'; // Use lg breakpoint value for xl
+			}
 			// Get ::root var value
 			var breakpointWidth = getComputedStyle( document.body ).getPropertyValue( '--breakpoint-' + menuBreakpoint ).replace( /\D/g, '' );
+			// Fallback for xl breakpoint
+			if (!breakpointWidth && menuBreakpoint === 'lg') {
+				breakpointWidth = 1000; // xl breakpoint value
+			}
 			if ( (window.innerWidth > breakpointWidth) && ($navBar.find( '.dropdown-menu' ).hasClass( 'show' ) || $( '#main-menu' ).hasClass( 'show' )) ) {
 				closeMenuCallback();
 			}

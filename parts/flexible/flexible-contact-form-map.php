@@ -42,7 +42,6 @@ if ($google_map && !empty($google_map['lat']) && !empty($google_map['lng'])) {
                             <div class="contact-form-map__map-content">
                                 <?php echo $map_content; ?>
 
-                                <!-- Відображення адреси з Google Map -->
                                 <?php if ($google_map && !empty($google_map['address'])): ?>
                                     <div class="contact-form-map__address">
                                         <?php echo esc_html($google_map['address']); ?>

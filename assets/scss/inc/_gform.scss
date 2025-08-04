@@ -28,7 +28,7 @@ $fields-gap: $grid-gutter-width;
 	.gf_left_half,
 	.gf_right_half {
 		float: left;
-		width: calc(50% - #{$fields-gap / 2});
+		width: calc(50% - #{$fields-gap * 0.5});
 
 		+ .gfield:not(.gf_left_half):not(.gf_right_half) {
 			clear: both;
@@ -39,7 +39,7 @@ $fields-gap: $grid-gutter-width;
 	.gf_middle_third,
 	.gf_right_third {
 		float: left;
-		width: calc(33.3333% - #{$fields-gap / 3});
+		width: calc(33.3333% - #{$fields-gap * 0.3333});
 
 		+ .gfield:not(.gf_left_third):not(.gf_middle_third):not(.gf_right_third) {
 			clear: both;
@@ -47,11 +47,11 @@ $fields-gap: $grid-gutter-width;
 	}
 
 	.gf_left_half {
-		margin-right: #{$fields-gap / 2};
+		margin-right: #{$fields-gap * 0.5};
 	}
 
 	.gf_right_half {
-		margin-left: #{$fields-gap / 2};
+		margin-left: #{$fields-gap * 0.5};
 
 		+ .gfield {
 			clear: both;
@@ -59,11 +59,11 @@ $fields-gap: $grid-gutter-width;
 	}
 
 	.gf_left_third {
-		margin-right: #{$fields-gap * 2 / 3};
+		margin-right: #{$fields-gap * 0.6667};
 	}
 
 	.gf_right_third {
-		margin-left: #{$fields-gap * 2 / 3};
+		margin-left: #{$fields-gap * 0.6667};
 
 		+ .gfield {
 			clear: both;
@@ -71,8 +71,8 @@ $fields-gap: $grid-gutter-width;
 	}
 
 	.gf_middle_third {
-		margin-right: #{$fields-gap / 3};
-		margin-left: #{$fields-gap / 3};
+		margin-right: #{$fields-gap * 0.3333};
+		margin-left: #{$fields-gap * 0.3333};
 	}
 }
 
@@ -82,8 +82,8 @@ $fields-gap: $grid-gutter-width;
 	}
 
 	@include media-breakpoint-up(md) {
-		margin-right: #{-$fields-gap / 2};
-		margin-left: #{-$fields-gap / 2};
+		margin-right: #{-$fields-gap * 0.5};
+		margin-left: #{-$fields-gap * 0.5};
 
 		&::after {
 			content: '';
@@ -95,9 +95,9 @@ $fields-gap: $grid-gutter-width;
 			display: block;
 			float: left;
 			width: calc(50% - #{$fields-gap});
-			margin-right: #{$fields-gap / 2};
+			margin-right: #{$fields-gap * 0.5};
 			margin-bottom: 20px;
-			margin-left: #{$fields-gap / 2};
+			margin-left: #{$fields-gap * 0.5};
 
 			&.ginput_full {
 				width: calc(100% - #{$fields-gap});

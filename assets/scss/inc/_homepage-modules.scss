@@ -128,7 +128,7 @@
 }
 
 .tiles-module__grid {
-  max-width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -196,11 +196,11 @@
 
   @include media-breakpoint-down(lg) {
     height: 450px;
+    width: 100%;
   }
 
   @include media-breakpoint-down(sm) {
     height: 300px;
-    border-radius: 10px;
     margin-bottom: 15px;
   }
 }
@@ -282,7 +282,7 @@
 }
 
 .our-mission-module__grid {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -305,7 +305,6 @@
   justify-content: center;
 
   @include media-breakpoint-down(md) {
-    margin-bottom: 20px;
   }
 }
 
@@ -318,17 +317,6 @@
   transition: all 0.3s ease;
   @extend %bgcover;
 
-  @include media-breakpoint-down(lg) {
-    width: 120px;
-    height: 120px;
-    border-width: 0.8rem;
-  }
-
-  @include media-breakpoint-down(md) {
-    width: 100px;
-    height: 100px;
-    border-width: 0.6rem;
-  }
 }
 .mission-item__content {
   margin-bottom: 25px;
@@ -903,7 +891,6 @@ body .gform_wrapper .gform_body .gfield .validation_message {
   margin-top: 5px !important;
 }
 
-// Додаткові селектори для більш надійного застосування стилів
 body .gform_wrapper .gform_body .gfield {
   margin-bottom: 10px !important;
 }
@@ -912,7 +899,6 @@ body .gform_wrapper .gform_footer {
   margin-top: 15px !important;
 }
 
-// Більш специфічні селектори для форми
 .contact-form-map-module .gform_wrapper .gform_body .gfield {
   margin-bottom: 8px !important;
 }
@@ -921,7 +907,6 @@ body .gform_wrapper .gform_footer {
   margin-top: 15px !important;
 }
 
-// Якщо використовується кастомна форма
 .contact-form-map__form-wrapper .gform_wrapper .gform_body .gfield {
   margin-bottom: 8px !important;
 }
@@ -930,7 +915,6 @@ body .gform_wrapper .gform_footer {
   margin-top: 15px !important;
 }
 
-// Додаткові стилі для кастомної форми
 .custom-contact-form > * {
   margin-bottom: 8px !important;
 }
@@ -939,9 +923,6 @@ body .gform_wrapper .gform_footer {
   margin-top: -20px !important;
   margin-bottom: 0 !important;
 }
-
-
-
 
 .contact-form-map__address{
   color: white;

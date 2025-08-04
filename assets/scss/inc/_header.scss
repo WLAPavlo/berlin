@@ -10,6 +10,11 @@
 	box-shadow: none;
 	transition: all 0.3s ease;
 	padding-top: 1.875rem;
+	overflow: visible;
+
+	@include media-breakpoint-down(lg) {
+		padding-top: 0;
+	}
 
 	&.header--scrolled {
 		position: fixed;
@@ -32,14 +37,13 @@
 .menu-container {
 	max-width: 1600px;
 	margin: 0 auto;
-	padding: 0 30px 0 60px;
+	position: relative;
 
-	@include media-breakpoint-down(lg) {
-		padding: 0 20px 0 40px;
-	}
-
-	@include media-breakpoint-down(md) {
-		padding: 0 15px 0 20px;
+	@include media-breakpoint-down(xl) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px;
 	}
 }
 
@@ -49,61 +53,96 @@
 	}
 
 	img {
-		max-height: 60px;
+		max-height: 9.375rem;
+		padding-top: 1.25rem;
+		padding-left: 1.25rem;
 		filter: none;
 		transition: all 0.3s ease;
 
+		@include media-breakpoint-down(lg) {
+			max-height: 3.75rem;
+			padding: 0;
+		}
 
 		@include media-breakpoint-down(md) {
-			max-height: 50px;
+			max-height: 3.125rem;
 		}
 	}
 
 	.header--scrolled & img,
 	.header--default & img {
-		max-height: 50px;
+		max-height: 9.375rem;
+		padding: 0;
+
+		@include media-breakpoint-down(xl) {
+			max-height: 3.75rem;
+		}
 
 		@include media-breakpoint-down(md) {
-			max-height: 40px;
+			max-height: 3.125rem;
 		}
 	}
 }
 
+.container-fluid{
+	padding-right: 0;
+}
+
+// Show burger menu from 1200px and down (xl breakpoint)
 @include media-breakpoint-down(lg) {
 	.navbar-toggler {
-		margin: 10px 0;
+		position: relative;
+		margin: 0;
 		border: none;
 		background-color: transparent;
-		padding: 0;
+		padding: 8px;
+		width: 50px;
+		height: 50px;
+		z-index: 1031;
 
 		&:hover, &:focus {
 			background-color: transparent;
 		}
 
-		@include menu-icon(#fff, #fff, 26px, 20px, 3px);
+		@include menu-icon(#fff, #fff, 30px, 24px, 3px);
 	}
 
 	.navbar-collapse {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 320px;
+		height: 100vh;
 		background-color: rgba(255, 255, 255, 0.98);
-		backdrop-filter: blur(10px);
-		border-radius: 10px;
-		margin-top: 15px;
-		padding: 0;
+		backdrop-filter: blur(15px);
+		border-radius: 0;
+		margin: 0;
+		padding: 80px 0 20px 0;
+		transition: right 0.3s ease;
+		overflow-y: auto;
+		z-index: 1030;
+
+		&.show {
+			right: 0;
+		}
 	}
 
 	.navbar-nav {
 		margin-left: 0;
-		padding: 15px 0;
+		padding: 0;
 
 		.nav-item {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
 			> a {
-				padding: 12px 20px;
+				padding: 18px 25px;
 				background: transparent;
 				color: #333;
 				font-size: 16px;
 				font-weight: 500;
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
+				border-radius: 0;
 
 				&:hover {
 					background: rgba(237, 189, 45, 0.1);
@@ -128,8 +167,8 @@
 				position: absolute;
 				top: 0;
 				right: 0;
-				width: 40px;
-				height: 40px;
+				width: 50px;
+				height: 100%;
 				padding: 0;
 				border: none;
 				background-color: transparent;
@@ -151,13 +190,17 @@
 
 			// Special styling for GIVE button on mobile
 			&:last-child {
+				border-bottom: none;
+				padding: 20px;
+
 				> a {
 					background: #edbd2d;
 					color: white;
 					font-weight: 700;
 					border-radius: 25px;
-					margin: 10px 20px;
+					margin: 0;
 					text-align: center;
+					padding: 15px 30px;
 
 					&:hover {
 						background: darken(#edbd2d, 10%);
@@ -167,24 +210,35 @@
 		}
 
 		.dropdown-toggle {
-			padding-right: 40px;
+			padding-right: 50px;
 		}
 
 		.dropdown-menu {
+			position: static;
+			float: none;
+			width: auto;
+			margin-top: 0;
+			background-color: rgba(0, 0, 0, 0.05);
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+
 			a {
-				padding-left: #{$nav-link-padding-x * 1.65};
+				padding: 12px 40px;
+				color: #666;
+				font-size: 14px;
 			}
 
 			.dropdown-menu {
 				a {
-					padding-left: #{$nav-link-padding-x * 2.3};
+					padding-left: 55px;
 				}
 			}
 		}
 	}
 }
 
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up(lg) {
 	.navbar-nav {
 		justify-content: flex-end;
 		align-items: center;
@@ -216,31 +270,45 @@
 		}
 
 		&.menu-item-has-children {
+			position: relative;
+
 			> [data-toggle="dropdown"] {
 				display: none;
-			}
-
-			> a {
-				/* Style of item with dropdown */
 			}
 
 			&:hover > a {
 				color: #edbd2d;
 			}
+
+			.dropdown-menu {
+				position: absolute !important;
+				top: 100% !important;
+				right: 0 !important;
+				left: auto !important;
+				z-index: 9999 !important;
+				max-width: 300px;
+				transform: translateX(0);
+			}
 		}
 
-		// Special styling for GIVE button
+		// Special styling for GIVE button - UPDATED FORM
 		&:last-child {
 			> a {
-				background: #edbd2d;
-				color: white;
+				background-color: #edbd2d;
+				color: #0b1837;
+				height: 4.1875rem;
+				width: 7.625rem;
+				text-align: center;
+				border-radius: 0 1.75rem 0 0;
 				font-weight: 700;
-				padding: 12px 30px;
-				border-radius: 25px 0 25px 25px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0;
 				margin-left: 10px;
 				transition: all 0.3s ease;
 				text-transform: uppercase;
-				border: 2px solid #edbd2d;
+				text-decoration: none;
 
 				&:hover {
 					background: transparent;
@@ -252,6 +320,7 @@
 
 			&.active > a {
 				background: darken(#edbd2d, 10%);
+				border-radius: 0 1.75rem 0 0;
 			}
 		}
 	}
@@ -280,10 +349,6 @@
 					color: white;
 				}
 			}
-		}
-
-		.dropdown-menu {
-			/* Styles for 2nd level dropdown menu */
 		}
 	}
 }

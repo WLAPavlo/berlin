@@ -14,6 +14,18 @@ body {
 
   &.no-slider {
     padding-top: 80px;
+
+    @include media-breakpoint-down(lg) {
+      padding-top: 80px;
+    }
+
+    @include media-breakpoint-down(md) {
+      padding-top: 70px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 0;
   }
 }
 
