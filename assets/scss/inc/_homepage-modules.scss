@@ -405,8 +405,6 @@
 }
 
 // Contact Form with Map Module - Dark Theme
-
-// Форсуємо дуже малі відступи для полів форми
 .contact-form-map-module .gform_wrapper .gform_body .gfield,
 .contact-form-map__form-wrapper .gform_wrapper .gform_body .gfield,
 body .contact-form-map-module .gform_wrapper .gform_body .gfield,
@@ -416,7 +414,6 @@ body .contact-form-map-module .gform_wrapper .gform_body .gfield,
   padding-bottom: 0 !important;
 }
 
-// Форсуємо дуже малий відступ для кнопки
 .contact-form-map-module .gform_wrapper .gform_footer,
 .contact-form-map__form-wrapper .gform_wrapper .gform_footer,
 body .contact-form-map-module .gform_wrapper .gform_footer,
@@ -475,7 +472,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 .contact-form-map__content {
   h1, h2, h3, h4, h5, h6 {
     color: white !important;
-    font-size: 32px !important;
+    font-size: 44px !important;
     font-weight: 600 !important;
     margin-bottom: 15px !important;
     text-align: left !important;
@@ -494,8 +491,8 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   }
 
   p {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 16px !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
     text-align: left !important;
     margin-bottom: 30px !important;
     line-height: 1.5 !important;
@@ -517,27 +514,27 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 
   h1, h2, h3, h4, h5, h6 {
     color: white !important;
-    font-size: 32px !important;
+    font-size: 44px !important;
     font-weight: 600 !important;
     margin-bottom: 15px !important;
     text-align: left !important;
 
     @include media-breakpoint-down(lg) {
-      font-size: 28px !important;
+      font-size: 36px !important;
     }
 
     @include media-breakpoint-down(md) {
-      font-size: 24px !important;
+      font-size: 32px !important;
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 20px !important;
+      font-size: 26px !important;
     }
   }
 
   p {
     color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 18px !important;
+    font-size: 20px !important;
     font-weight: 500 !important;
     text-align: left !important;
     margin-bottom: 0 !important;
@@ -548,7 +545,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 15px !important;
+      font-size: 12px !important;
     }
   }
 }
@@ -559,7 +556,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 
     .gform_fields {
       .gfield {
-        margin-bottom: 3px !important; // Зменшено до 3px
+        margin-bottom: 3px !important;
 
         &.gf_left_half,
         &.gf_right_half {
@@ -569,7 +566,6 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
           margin-left: 0 !important;
         }
 
-        // Лейбли полів
         .gfield_label {
           color: white !important;
           font-weight: 500 !important;
@@ -680,7 +676,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 
     .gform_footer {
       text-align: center !important;
-      margin-top: 8px !important; // Зменшено до 8px
+      margin-top: 8px !important;
 
       input[type="submit"],
       .gform_button {
@@ -698,7 +694,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
         min-width: 150px !important;
 
         &:hover {
-          background: rgba(255, 255, 255, 0.9) !important;
+          background: gold !important;
           transform: translateY(-2px) !important;
           box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3) !important;
         }
@@ -716,19 +712,19 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   border-radius: 15px !important;
   overflow: hidden !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-  height: 550px !important; // Збільшено з 450px до 550px
+  height: 550px !important;
 
   @include media-breakpoint-down(lg) {
-    height: 500px !important; // Збільшено з 400px до 500px
+    height: 500px !important;
   }
 
   @include media-breakpoint-down(md) {
-    height: 450px !important; // Збільшено з 350px до 450px
+    height: 450px !important;
     border-radius: 10px !important;
   }
 
   @include media-breakpoint-down(sm) {
-    height: 350px !important; // Збільшено з 300px до 350px
+    height: 350px !important;
   }
 
   iframe {
@@ -742,7 +738,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 .custom-contact-form {
   display: flex !important;
   flex-direction: column !important;
-  gap: 3px !important; // Зменшено до 3px
+  gap: 3px !important;
   color: white !important;
 }
 
@@ -802,13 +798,13 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   text-transform: uppercase !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  margin: 8px auto 0 !important; // Зменшено до 8px
+  margin: 8px auto 0 !important;
   display: block !important;
   min-width: 150px !important;
 }
 
 .custom-contact-form input[type="submit"]:hover {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: gold !important;
   transform: translateY(-2px) !important;
 }
 
@@ -885,7 +881,7 @@ body .gform_wrapper .gform_footer .gform_button {
   transition: all 0.3s ease !important;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.9) !important;
+    background: gold !important;
     transform: translateY(-2px) !important;
   }
 }
@@ -942,4 +938,12 @@ body .gform_wrapper .gform_footer {
 .custom-contact-form input[type="submit"] {
   margin-top: -20px !important;
   margin-bottom: 0 !important;
+}
+
+
+
+
+.contact-form-map__address{
+  color: white;
+  font-size: 20px;
 }

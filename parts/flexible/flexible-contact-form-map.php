@@ -41,19 +41,26 @@ if ($google_map && !empty($google_map['lat']) && !empty($google_map['lng'])) {
                         <?php if ($map_content): ?>
                             <div class="contact-form-map__map-content">
                                 <?php echo $map_content; ?>
+
+                                <!-- Відображення адреси з Google Map -->
+                                <?php if ($google_map && !empty($google_map['address'])): ?>
+                                    <div class="contact-form-map__address">
+                                        <?php echo esc_html($google_map['address']); ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         <?php endif; ?>
 
                         <?php if ($map_iframe_url): ?>
                             <div class="contact-form-map__map">
                                 <iframe
-                                    src="<?php echo esc_url($map_iframe_url); ?>"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade">
+                                        src="<?php echo esc_url($map_iframe_url); ?>"
+                                        width="100%"
+                                        height="100%"
+                                        style="border:0;"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
                         <?php endif; ?>
