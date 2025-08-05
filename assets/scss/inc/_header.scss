@@ -33,7 +33,18 @@
 	@include media-breakpoint-only(lg) {
 		padding-top: 0;
 	}
+	@include media-breakpoint-only(md) {
+		padding-top: 0.5rem;
+	}
+	@include media-breakpoint-only(sm) {
+		padding-top: 0.5rem;
+	}
+	@include media-breakpoint-only(xs) {
+		padding-top: 0.5rem;
+	}
+
 }
+
 
 .menu-container {
 	max-width: 1600px;
@@ -208,7 +219,9 @@
 
 				&:hover {
 					background: none !important;
-					color: gold;
+					color: $gold;
+					outline: none !important;
+					box-shadow: none !important;
 				}
 			}
 
@@ -277,7 +290,7 @@
 					&:hover {
 						transform: translateY(-2px);
 						box-shadow: 0 8px 25px rgba(237, 189, 45, 0.4);
-						background: gold;
+						background: $gold;
 
 						&::before {
 							left: 100%;

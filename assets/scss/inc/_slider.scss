@@ -70,18 +70,6 @@
 			font-weight: 600;
 			margin-bottom: 2rem;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-
-			@include media-breakpoint-down(lg) {
-				font-size: 60px;
-			}
-
-			@include media-breakpoint-down(md) {
-				font-size: 45px;
-			}
-
-			@include media-breakpoint-down(sm) {
-				font-size: 32px;
-			}
 		}
 
 		.slider-content {
@@ -98,7 +86,9 @@
 			display: flex;
 			gap: 1rem;
 			justify-content: center;
+			text-align: center;
 			flex-wrap: wrap;
+
 
 			.slider-btn {
 				padding: 15px 35px;
@@ -113,6 +103,10 @@
 				@include media-breakpoint-down(md) {
 					padding: 12px 25px;
 					font-size: 14px;
+					flex-direction: column-reverse;
+					width: 70%;
+					margin: 0 auto;
+
 				}
 
 				&.btn-primary {
@@ -269,6 +263,10 @@
 			min-height: 450px;
 		}
 
+		h3 {
+			line-height: 1;
+		}
+
 		.slick-slide__inner {
 			border-radius: 10px;
 		}
@@ -287,6 +285,10 @@
 			height: 60vh;
 			min-height: 400px;
 		}
+		h3 {
+			line-height: 1;
+		}
+
 
 		.slick-slide__inner {
 			border-radius: 0;
@@ -338,8 +340,7 @@
 			max-width: 90%;
 
 			h3 {
-				font-size: 28px;
-				margin-bottom: 1.5rem;
+				line-height: 1;
 			}
 
 			.slider-content {
