@@ -51,37 +51,42 @@
 endif; ?>
 <!-- END of Alert Bar -->
 
-<!-- BEGIN of header -->
-<header class="header <?php echo is_page_template('templates/template-home.php') ? 'header--in-slider' : 'header--default'; ?>">
-    <div class="container-fluid menu-container">
-        <div class="row no-gutters-xs">
-            <div class="col-auto">
-                <div class="logo">
-                    <?php show_custom_logo(); ?>
+<?php if (is_page_template('templates/template-home.php') || is_front_page()): ?>
+    <!-- BEGIN of header for home page -->
+    <header class="header header--in-slider">
+        <div class="container-fluid menu-container">
+            <div class="row no-gutters-xs">
+                <div class="col-auto">
+                    <div class="logo">
+                        <?php show_custom_logo(); ?>
+                    </div>
+                </div>
+                <div class="col">
+                    <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+                        <div class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">
+                                    <span></span>
+                                </span>
+                            </button>
+                            <nav class="collapse navbar-collapse" id="mainMenu">
+                                <?php wp_nav_menu( array(
+                                    'theme_location' => 'header-menu',
+                                    'menu_class'     => 'header-menu navbar-nav ml-auto',
+                                    'container'      => false,
+                                    'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    'walker'         => new Bootstrap_Navigation(),
+                                ) ); ?>
+                            </nav>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
-            <div class="col">
-                <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-                    <div class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon">
-                                <span></span>
-                            </span>
-                        </button>
-                        <nav class="collapse navbar-collapse" id="mainMenu">
-                            <?php wp_nav_menu( array(
-                                'theme_location' => 'header-menu',
-                                'menu_class'     => 'header-menu navbar-nav ml-auto',
-                                'container'      => false,
-                                'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                                'walker'         => new Bootstrap_Navigation(),
-                            ) ); ?>
-                        </nav>
-                    </div>
-                <?php endif; ?>
-            </div>
         </div>
-    </div>
-</header>
-<!-- END of header -->
+    </header>
+    <!-- END of header for home page -->
+<?php else: ?>
+    <!-- Page banner with header inside for other pages -->
+    <?php get_template_part('parts/page-banner'); ?>
+<?php endif; ?>
 

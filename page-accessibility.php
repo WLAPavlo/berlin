@@ -9,7 +9,6 @@ get_header(); ?>
             <div class="row">
                 <div class="col-12">
                     <article class="entry">
-                        <h1 class="page-title entry__title">Accessibility Statement</h1>
                         <div class="entry__content">
                             <p>Berlin First Baptist Church is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
 

@@ -29,6 +29,60 @@
 		padding: 15px 0;
 	}
 
+	&.header--in-banner {
+		position: absolute;
+		background: transparent;
+		backdrop-filter: none;
+		box-shadow: none;
+		padding: 30px 0 0;
+		z-index: 3;
+
+		@include media-breakpoint-down(lg) {
+			padding: 20px 0 0;
+		}
+
+		@include media-breakpoint-down(md) {
+			padding: 15px 0 0;
+		}
+
+		.logo img {
+			max-height: 120px;
+			padding: 0;
+
+			@include media-breakpoint-down(lg) {
+				max-height: 80px;
+			}
+
+			@include media-breakpoint-down(md) {
+				max-height: 60px;
+			}
+		}
+
+		.nav-link {
+			color: white;
+
+			&:hover {
+				color: #edbd2d;
+			}
+		}
+
+		.navbar-toggler {
+			.navbar-toggler-icon {
+				background-color: white;
+
+				&::before,
+				&::after {
+					background-color: white;
+				}
+			}
+		}
+
+		@include media-breakpoint-down(md) {
+			.navbar-collapse {
+				background-color: rgba(47, 58, 85, 0.98);
+			}
+		}
+	}
 
 	@include media-breakpoint-only(lg) {
 		padding-top: 0;

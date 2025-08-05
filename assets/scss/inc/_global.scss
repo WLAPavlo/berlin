@@ -12,16 +12,17 @@ body {
   background-attachment: fixed;
   padding-top: 1.875rem;
 
-  &.no-slider {
+  &.no-slider,
+  &:not(.home) {
     padding-top: 80px;
 
     @include media-breakpoint-down(md) {
       padding-top: 0;
     }
   }
-    @include media-breakpoint-down(lg) {
-      padding-top: 0;
-    }
+  @include media-breakpoint-down(lg) {
+    padding-top: 0;
+  }
 }
 
 main {

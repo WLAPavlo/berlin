@@ -9,7 +9,6 @@ get_header(); ?>
             <div class="row">
                 <div class="col-12">
                     <article class="entry">
-                        <h1 class="page-title entry__title">Site Map</h1>
                         <div class="entry__content">
                             <div class="sitemap-section">
                                 <h2>Pages</h2>
