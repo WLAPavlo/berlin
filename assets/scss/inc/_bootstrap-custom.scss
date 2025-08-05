@@ -45,7 +45,7 @@ $grid-breakpoints: (
 				sm: 576px,
 				md: 768px,
 				lg: 992px,
-				xl: 1000px,
+				xl: 1200px,
 				xxl: 1640px,
 ); // Breakpoints where container will change it max-width
 
@@ -217,14 +217,6 @@ $navbar-nav-link-padding-x: $nav-link-padding-x;
 
 $navbar-toggler-padding-y: 0;
 $navbar-toggler-padding-x: 0;
-
-// Navbar expand breakpoints
-$navbar-expand-breakpoints: (
-				sm: sm,
-				md: md,
-				lg: lg,
-				xl: xl
-);
 
 // Menu dropdowns
 $dropdown-min-width: 200px;

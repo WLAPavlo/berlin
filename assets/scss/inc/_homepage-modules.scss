@@ -172,16 +172,15 @@
   &:hover {
     text-decoration: none;
     color: inherit;
-    transform: translateY(-5px);
-
-    .tile-item__image {
-      transform: scale(1.05);
-    }
+    transform: translateY(-2px);
   }
 
   &:focus {
-    outline: 3px solid #edbd2d;
-    outline-offset: 2px;
+    outline: none;
+
+    .tile-item__title {
+      color: #edbd2d;
+    }
   }
 }
 
@@ -191,7 +190,7 @@
   border-radius: 2rem;
   overflow: hidden;
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   @extend %bgcover;
 
   @include media-breakpoint-down(lg) {
@@ -927,4 +926,32 @@ body .gform_wrapper .gform_footer {
 .contact-form-map__address{
   color: white;
   font-size: 20px;
+}
+/* Add spacing between form and map/address section on mobile and tablets */
+.contact-form-map__form-wrapper {
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 35px !important;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 40px !important;
+  }
+}
+
+/* Alternative approach - add top margin to map wrapper */
+.contact-form-map__map-wrapper {
+
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 40px !important;
+  }
+}
+
+/* If you need to target the "VISIT US" section specifically */
+.contact-form-map__map-content {
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 40px !important;
+  }
 }

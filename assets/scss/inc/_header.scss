@@ -12,10 +12,6 @@
 	padding-top: 1.875rem;
 	overflow: visible;
 
-	@include media-breakpoint-down(lg) {
-		padding-top: 0;
-	}
-
 	&.header--scrolled {
 		position: fixed;
 		top: 0;
@@ -32,19 +28,18 @@
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		padding: 15px 0;
 	}
+
+
+	@include media-breakpoint-only(lg) {
+		padding-top: 0;
+	}
+
 }
 
 .menu-container {
 	max-width: 1600px;
 	margin: 0 auto;
 	position: relative;
-
-	@include media-breakpoint-down(xl) {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 15px;
-	}
 }
 
 .logo {
@@ -63,10 +58,6 @@
 			max-height: 3.75rem;
 			padding: 0;
 		}
-
-		@include media-breakpoint-down(md) {
-			max-height: 3.125rem;
-		}
 	}
 
 	.header--scrolled & img,
@@ -79,41 +70,99 @@
 		}
 
 		@include media-breakpoint-down(md) {
-			max-height: 3.125rem;
+			max-height: 3.75rem;
 		}
 	}
 }
 
-.container-fluid{
+.container-fluid {
 	padding-right: 0;
 }
 
-// Show burger menu from 1200px and down (xl breakpoint)
-@include media-breakpoint-down(lg) {
-	.navbar-toggler {
-		position: relative;
-		margin: 0;
-		border: none;
-		background-color: transparent;
-		padding: 8px;
-		width: 50px;
-		height: 50px;
-		z-index: 1031;
+// Navbar toggler (burger menu) styles
+.navbar-toggler {
+	position: relative;
+	border: none;
+	background: transparent;
+	padding: 12px;
+	width: 60px;
+	height: 60px;
+	z-index: 1031;
+	margin-left: auto;
+	border-radius: 8px;
+	margin-right: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-		&:hover, &:focus {
-			background-color: transparent;
-		}
 
-		@include menu-icon(#fff, #fff, 30px, 24px, 3px);
+	&:focus {
+		outline: none;
+		box-shadow: none;
 	}
 
+	// Create hamburger icon
+	.navbar-toggler-icon {
+		position: relative;
+		display: block;
+		width: 28px;
+		height: 2px;
+		background-color: white;
+		border-radius: 1px;
+		transition: all 0.3s ease;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: white;
+			border-radius: 1px;
+			transition: all 0.3s ease;
+		}
+
+		&::before {
+			top: -9px;
+		}
+
+		&::after {
+			top: 9px;
+		}
+	}
+
+	// Animation when menu is open (X icon)
+	&[aria-expanded="true"] {
+		.navbar-toggler-icon {
+			background-color: transparent;
+
+			&::before {
+				transform: rotate(45deg);
+				top: 0;
+			}
+
+			&::after {
+				transform: rotate(-45deg);
+				top: 0;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		display: none;
+	}
+}
+
+// Mobile menu styles
+@include media-breakpoint-down(md) {
 	.navbar-collapse {
 		position: fixed;
 		top: 0;
 		right: -100%;
-		width: 320px;
+		width: 360px;
 		height: 100vh;
-		background-color: rgba(255, 255, 255, 0.98);
+		background-color: rgba(47, 58, 85, 0.98);
 		backdrop-filter: blur(15px);
 		border-radius: 0;
 		margin: 0;
@@ -121,6 +170,8 @@
 		transition: right 0.3s ease;
 		overflow-y: auto;
 		z-index: 1030;
+		box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+
 
 		&.show {
 			right: 0;
@@ -132,12 +183,12 @@
 		padding: 0;
 
 		.nav-item {
-			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
 			> a {
 				padding: 18px 25px;
 				background: transparent;
-				color: #333;
+				color: #ffffff;
 				font-size: 16px;
 				font-weight: 500;
 				text-transform: uppercase;
@@ -145,21 +196,21 @@
 				border-radius: 0;
 
 				&:hover {
-					background: rgba(237, 189, 45, 0.1);
-					color: #f39c12;
+					background: gold;
+					color: #edbd2d;
 				}
 			}
 
 			&.active {
 				> a, > .submenu-toggle {
-					background: #f39c12;
+					background: #edbd2d;
 					color: white;
 				}
 			}
 
 			&.show {
 				> a, > .submenu-toggle {
-					background: rgba(237, 189, 45, 0.1);
+					background: rgba(237, 189, 45, 0.2);
 				}
 			}
 
@@ -188,22 +239,57 @@
 				}
 			}
 
-			// Special styling for GIVE button on mobile
 			&:last-child {
 				border-bottom: none;
-				padding: 20px;
+				padding: 25px 25px 20px 25px;
+				text-align: center;
 
 				> a {
-					background: #edbd2d;
-					color: white;
-					font-weight: 700;
-					border-radius: 25px;
-					margin: 0;
+					background: gold;
+					color: #0b1837;
+					height: 4rem;
+					width: 100%;
+					max-width: 200px;
 					text-align: center;
-					padding: 15px 30px;
+					border-radius: 25px;
+					font-weight: 700;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0 !important;
+					margin: 0 auto !important;
+					transition: all 0.3s ease;
+					text-transform: uppercase;
+					text-decoration: none;
+					font-size: 16px;
+					letter-spacing: 1px;
+					box-shadow: 0 4px 15px rgba(237, 189, 45, 0.3);
+					position: relative;
+					overflow: hidden;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: -100%;
+						width: 100%;
+						height: 100%;
+						background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+						transition: left 0.5s;
+					}
 
 					&:hover {
-						background: darken(#edbd2d, 10%);
+						transform: translateY(-2px);
+						box-shadow: 0 8px 25px rgba(237, 189, 45, 0.4);
+						background: gold;
+
+						&::before {
+							left: 100%;
+						}
+					}
+
+					&:active {
+						transform: translateY(0);
 					}
 				}
 			}
@@ -213,25 +299,36 @@
 			padding-right: 50px;
 		}
 
+		// Mobile dropdown styles
 		.dropdown-menu {
-			position: static;
+			position: static !important;
+			display: none;
 			float: none;
 			width: auto;
 			margin-top: 0;
-			background-color: rgba(0, 0, 0, 0.05);
+			background-color: rgba(30, 40, 60, 0.9);
 			border: none;
 			border-radius: 0;
-			box-shadow: none;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			backdrop-filter: none;
+			padding: 0;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
 
-			a {
-				padding: 12px 40px;
-				color: #666;
-				font-size: 14px;
+			&.show {
+				display: block;
 			}
 
-			.dropdown-menu {
-				a {
-					padding-left: 55px;
+			a {
+				padding: 15px 45px;
+				color: rgba(255, 255, 255, 0.9);
+				font-size: 14px;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+				&:hover {
+					background: rgba(237, 189, 45, 0.2);
+					color: #edbd2d;
 				}
 			}
 		}
@@ -239,11 +336,35 @@
 }
 
 @include media-breakpoint-up(lg) {
+	.navbar-collapse {
+		position: static !important;
+		right: auto !important;
+		width: auto !important;
+		height: auto !important;
+		background-color: transparent !important;
+		backdrop-filter: none !important;
+		border-radius: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		transition: none !important;
+		overflow-y: visible !important;
+		z-index: auto !important;
+		box-shadow: none !important;
+		display: flex !important;
+		flex-basis: auto !important;
+		flex-grow: 1 !important;
+		align-items: center !important;
+	}
+
+
 	.navbar-nav {
 		justify-content: flex-end;
 		align-items: center;
 		margin-left: 0;
 		margin-right: 0;
+		flex-direction: row !important;
+		display: flex !important;
+		padding: 0 !important;
 	}
 
 	.nav-link {
@@ -253,9 +374,10 @@
 		text-transform: uppercase;
 		font-size: 16px;
 		letter-spacing: 0.5px;
-		padding: 12px 18px;
+		padding: 12px 15px !important;
 		border-radius: 0;
 		transition: all 0.3s ease;
+		margin: 0 !important;
 
 		&:hover {
 			color: #edbd2d;
@@ -263,6 +385,10 @@
 	}
 
 	.nav-item {
+		border-bottom: none !important;
+		padding: 0 !important;
+		margin: 0 !important;
+
 		&.active {
 			> a {
 				color: #edbd2d;
@@ -288,27 +414,58 @@
 				z-index: 9999 !important;
 				max-width: 300px;
 				transform: translateX(0);
+				background: rgba(47, 58, 85, 0.95);
+				backdrop-filter: blur(15px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 15px;
+				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+				padding: 15px 0;
+				margin-top: 10px;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: -8px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 0;
+					height: 0;
+					border-left: 8px solid transparent;
+					border-right: 8px solid transparent;
+					border-bottom: 8px solid rgba(47, 58, 85, 0.95);
+				}
+			}
+
+			&:hover .dropdown-menu {
+				opacity: 1;
+				visibility: visible;
+				transform: translateX(0) translateY(0);
 			}
 		}
 
-		// Special styling for GIVE button - UPDATED FORM
 		&:last-child {
+			padding: 0 !important;
+
 			> a {
 				background-color: #edbd2d;
 				color: #0b1837;
-				height: 4.1875rem;
-				width: 7.625rem;
+				height: 3.5rem;
+				width: 6rem;
 				text-align: center;
-				border-radius: 0 1.75rem 0 0;
+				border-radius: 0 1.5rem 0 0;
 				font-weight: 700;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 0;
-				margin-left: 10px;
+				padding: 0 !important;
+				margin: 0 0 0 8px !important;
 				transition: all 0.3s ease;
 				text-transform: uppercase;
 				text-decoration: none;
+				font-size: 14px;
 
 				&:hover {
 					background: transparent;
@@ -320,35 +477,48 @@
 
 			&.active > a {
 				background: darken(#edbd2d, 10%);
-				border-radius: 0 1.75rem 0 0;
 			}
 		}
 	}
 
 	.dropdown-menu {
-		background: white;
-		backdrop-filter: blur(15px);
-		border: none;
-		border-radius: 10px;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
 		.nav-item {
 			> a {
-				color: #333;
-				font-size: 14px;
+				color: #ffffff;
+				font-size: 15px;
+				padding: 12px 25px;
+				border-radius: 8px;
+				margin: 2px 15px;
+				transition: all 0.3s ease;
+				text-transform: none;
+				letter-spacing: 0.3px;
 
 				&:hover {
-					background: rgba(237, 189, 45, 0.1);
-					color: #f39c12;
+					background: rgba(237, 189, 45, 0.2);
+					color: #edbd2d;
+					transform: translateX(5px);
 				}
 			}
 
 			&.active {
 				> a {
 					background: #edbd2d;
-					color: white;
+					color: #2f3a55;
+					font-weight: 600;
 				}
 			}
 		}
+	}
+}
+
+@include media-breakpoint-only(lg) {
+	.nav-link {
+		font-size: 14px !important;
+	}
+
+	.nav-item:last-child > a {
+		height: 3rem !important;
+		width: 5.5rem !important;
+		font-size: 13px !important;
 	}
 }

@@ -64,7 +64,9 @@ endif; ?>
                 <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
                     <div class="navbar navbar-expand-lg">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon">
+                                <span></span>
+                            </span>
                         </button>
                         <nav class="collapse navbar-collapse" id="mainMenu">
                             <?php wp_nav_menu( array(

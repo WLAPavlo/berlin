@@ -173,12 +173,12 @@ textarea[rows] {
 }
 
 button, .btn, .button, input[type='submit'], input[type='reset'], input[type='button'] {
-	background-color: $main-color;
+	background-color: $gold;
 	color: #fff;
 	text-decoration: none;
 
 	&:hover, &:focus {
-		background-color: darken($main-color, 7.5);
+		background-color: darken($gold, 7.5);
 		color: #fff;
 	}
 }
