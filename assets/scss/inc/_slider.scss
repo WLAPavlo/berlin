@@ -98,13 +98,12 @@
 				text-decoration: none;
 				transition: all 0.3s ease;
 				display: inline-block;
-				font-size: 16px;
+				font-size: 27px;
 
 				@include media-breakpoint-down(md) {
 					padding: 12px 25px;
-					font-size: 14px;
 					flex-direction: column-reverse;
-					width: 70%;
+					width: 85%;
 					margin: 0 auto;
 
 				}
