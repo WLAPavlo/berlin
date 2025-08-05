@@ -391,7 +391,7 @@
   }
 }
 
-// Contact Form with Map Module - Dark Theme
+// Contact Form with Map Module - Dark Theme - Improved
 .contact-form-map-module .gform_wrapper .gform_body .gfield,
 .contact-form-map__form-wrapper .gform_wrapper .gform_body .gfield,
 body .contact-form-map-module .gform_wrapper .gform_body .gfield,
@@ -424,35 +424,43 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   }
 
   @include media-breakpoint-down(sm) {
-    padding: 40px 0 !important;
+    padding: 60px 0 !important;
   }
 }
 
 .contact-form-map__content {
   align-items: stretch !important;
+
+  @include media-breakpoint-down(sm) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }
 
 .contact-form-map__form-wrapper,
 .contact-form-map__map-wrapper {
-  background: rgba(30, 41, 59, 0.8) !important;
-  border-radius: 20px !important;
-  padding: 40px !important;
-  height: 100% !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 35px;
+  padding: 40px;
+  height: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 
   @include media-breakpoint-down(lg) {
-    padding: 30px !important;
+    padding: 30px;
+    border-radius: 32px;
   }
 
   @include media-breakpoint-down(md) {
-    padding: 25px !important;
-    border-radius: 15px !important;
-    margin-bottom: 30px !important;
+    padding: 25px;
+    border-radius: 30px;
+    margin-bottom: 30px;
   }
 
   @include media-breakpoint-down(sm) {
-    padding: 20px !important;
-    border-radius: 10px !important;
+    padding: 20px;
+    border-radius: 28px;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 }
 
@@ -473,7 +481,8 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 20px !important;
+      font-size: 32px;
+      text-align: left;
     }
   }
 
@@ -490,8 +499,10 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 14px !important;
+      font-size: 18px !important;
       margin-bottom: 20px !important;
+      text-align: left !important;
+      padding-left: 0 !important;
     }
   }
 }
@@ -515,7 +526,8 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 26px !important;
+      font-size: 32px;
+      text-align: left;
     }
   }
 
@@ -532,7 +544,9 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 12px !important;
+      font-size: 18px;
+      text-align: left;
+      padding-left: 20px;
     }
   }
 }
@@ -564,98 +578,93 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
         input[type="email"],
         input[type="tel"],
         select {
-          width: 100% !important;
-          padding: 18px 20px !important;
-          border: none !important;
-          border-radius: 12px !important;
-          font-size: 16px !important;
-          transition: all 0.3s ease !important;
-          background: white !important;
-          color: #333 !important;
-          box-sizing: border-box !important;
-          height: 56px !important;
+          width: 100%;
+          padding: 18px 20px;
+          border: none;
+          border-radius: 25px;
+          font-size: 16px;
+          transition: all 0.3s ease;
+          background: white;
+          color: #333;
+          box-sizing: border-box;
+          height: 56px;
 
           &:focus {
-            outline: none !important;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
           }
 
           &::placeholder {
-            color: #999 !important;
+            color: #999;
           }
         }
 
         textarea {
-          width: 100% !important;
-          padding: 15px 20px !important;
-          border: none !important;
-          border-radius: 12px !important;
-          font-size: 16px !important;
-          transition: all 0.3s ease !important;
-          background: white !important;
-          color: #333 !important;
-          box-sizing: border-box !important;
-          min-height: 120px !important;
-          resize: vertical !important;
+          width: 100%;
+          padding: 15px 20px;
+          border: none;
+          border-radius: 25px;
+          font-size: 16px;
+          transition: all 0.3s ease;
+          background: white;
+          color: #333;
+          box-sizing: border-box;
+          min-height: 120px;
+          resize: vertical;
 
           &:focus {
-            outline: none !important;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
           }
 
           &::placeholder {
-            color: #999 !important;
+            color: #999;
           }
-        }
-
-        textarea {
-          min-height: 120px !important;
-          resize: vertical !important;
         }
 
         .ginput_container input,
         .ginput_container select {
-          width: 100% !important;
-          padding: 18px 20px !important;
-          border: none !important;
-          border-radius: 12px !important;
-          font-size: 16px !important;
-          transition: all 0.3s ease !important;
-          background: white !important;
-          color: #333 !important;
-          box-sizing: border-box !important;
-          height: 60px !important;
+          width: 100%;
+          padding: 18px 20px;
+          border: none;
+          border-radius: 25px;
+          font-size: 16px;
+          transition: all 0.3s ease;
+          background: white;
+          color: #333;
+          box-sizing: border-box;
+          height: 60px;
 
           &:focus {
-            outline: none !important;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
           }
 
           &::placeholder {
-            color: #999 !important;
+            color: #999;
           }
         }
 
         .ginput_container textarea {
-          width: 100% !important;
-          padding: 15px 20px !important;
-          border: none !important;
-          border-radius: 12px !important;
-          font-size: 16px !important;
-          transition: all 0.3s ease !important;
-          background: white !important;
-          color: #333 !important;
-          box-sizing: border-box !important;
-          min-height: 120px !important;
-          resize: vertical !important;
+          width: 100%;
+          padding: 15px 20px;
+          border: none;
+          border-radius: 25px;
+          font-size: 16px;
+          transition: all 0.3s ease;
+          background: white;
+          color: #333;
+          box-sizing: border-box;
+          min-height: 120px;
+          resize: vertical;
 
           &:focus {
-            outline: none !important;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
           }
 
           &::placeholder {
-            color: #999 !important;
+            color: #999;
           }
         }
       }
@@ -667,28 +676,31 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 
       input[type="submit"],
       .gform_button {
-        background: white !important;
-        color: #1e293b !important;
-        border: none !important;
-        padding: 15px 40px !important;
-        border-radius: 50px !important;
-        font-size: 16px !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        min-width: 150px !important;
+        background: white;
+        color: #1e293b;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 120px;
+        max-width: 200px;
+        width: auto;
+        display: inline-block;
 
         &:hover {
-          background: gold !important;
-          transform: translateY(-2px) !important;
-          box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3) !important;
+          background: gold;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
         }
 
         &:focus {
-          outline: none !important;
-          box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
         }
       }
     }
@@ -696,29 +708,31 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 }
 
 .contact-form-map__map {
-  border-radius: 15px !important;
-  overflow: hidden !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-  height: 550px !important;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  height: 550px;
 
   @include media-breakpoint-down(lg) {
-    height: 500px !important;
+    height: 500px;
+    border-radius: 28px;
   }
 
   @include media-breakpoint-down(md) {
-    height: 450px !important;
-    border-radius: 10px !important;
+    height: 450px;
+    border-radius: 26px;
   }
 
   @include media-breakpoint-down(sm) {
-    height: 350px !important;
+    height: 350px;
+    border-radius: 25px;
   }
 
   iframe {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: inherit !important;
-    border: none !important;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: none;
   }
 }
 
@@ -735,7 +749,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   width: 100% !important;
   padding: 18px 20px !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 15px !important;
   font-size: 1rem !important;
   background: white !important;
   color: #333 !important;
@@ -757,7 +771,7 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   width: 100% !important;
   padding: 15px 20px !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 15px !important;
   font-size: 1rem !important;
   background: white !important;
   color: #333 !important;
@@ -796,9 +810,6 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 }
 
 @media (max-width: 768px) {
-  .custom-contact-form {
-    padding: 1rem !important;
-  }
 
   .custom-contact-form input[type="submit"] {
     width: 100% !important;
@@ -812,7 +823,7 @@ body .gform_wrapper .gform_body .gfield select {
   width: 100% !important;
   padding: 18px 20px !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 15px !important;
   font-size: 16px !important;
   background: white !important;
   color: #333 !important;
@@ -835,7 +846,7 @@ body .gform_wrapper .gform_body .gfield textarea {
   width: 100% !important;
   padding: 15px 20px !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 15px !important;
   font-size: 16px !important;
   background: white !important;
   color: #333 !important;
@@ -887,7 +898,8 @@ body .gform_wrapper .gform_body .gfield .gfield_required {
 body .gform_wrapper .gform_body .gfield .validation_message {
   color: #ff6b6b !important;
   font-size: 14px !important;
-  margin-top: 5px !important;
+  margin-top: 3rem !important;
+  padding-left: 1rem;
 }
 
 body .gform_wrapper .gform_body .gfield {
@@ -923,35 +935,34 @@ body .gform_wrapper .gform_footer {
   margin-bottom: 0 !important;
 }
 
-.contact-form-map__address{
+.contact-form-map__address {
   color: white;
   font-size: 20px;
+
+  @include media-breakpoint-down(sm) {
+    text-align: left;
+    font-size: 18px;
+  }
 }
-/* Add spacing between form and map/address section on mobile and tablets */
+
 .contact-form-map__form-wrapper {
-
   @include media-breakpoint-down(md) {
-    margin-bottom: 35px !important;
+    margin-bottom: 30px;
   }
 
   @include media-breakpoint-down(sm) {
-    margin-bottom: 40px !important;
+    margin-bottom: 40px;
   }
 }
 
-/* Alternative approach - add top margin to map wrapper */
 .contact-form-map__map-wrapper {
-
-
   @include media-breakpoint-down(sm) {
-    margin-top: 40px !important;
+    margin-bottom: 30px;
   }
 }
 
-/* If you need to target the "VISIT US" section specifically */
 .contact-form-map__map-content {
-
   @include media-breakpoint-down(sm) {
-    margin-top: 40px !important;
+    margin-bottom: 20px;
   }
 }
