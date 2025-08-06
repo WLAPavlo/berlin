@@ -12,11 +12,6 @@ get_header(); ?>
                 <?php if ( have_posts() ) : ?>
                     <?php while ( have_posts() ) : the_post(); ?>
                         <article <?php post_class('entry'); ?>>
-                            <?php if ( has_post_thumbnail() ) : ?>
-                                <div title="<?php the_title_attribute(); ?>" class="entry__thumb">
-                                    <?php the_post_thumbnail( 'large' ); ?>
-                                </div>
-                            <?php endif; ?>
                             <div class="entry__content">
                                 <?php the_content( '', true ); ?>
                             </div>

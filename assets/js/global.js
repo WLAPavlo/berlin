@@ -75,7 +75,7 @@
 
 	// Scripts which runs after DOM load
 	var scrollOut;
-	$( document ).on( 'ready', function() {
+	$(document).on('ready', function () {
 
 		var $header = $('.header');
 		var $slider = $('#home-slider');
@@ -96,6 +96,13 @@
 			} else {
 				$header.addClass('header--default');
 				$('body').addClass('no-slider');
+				if (scrollTop > 0 && !isScrolled) {
+					$header.addClass('header--default--scrolled');
+					isScrolled = true;
+				} else if (scrollTop <= 0 && isScrolled) {
+					$header.removeClass('header--default--scrolled');
+					isScrolled = false;
+				}
 			}
 		}
 
@@ -117,49 +124,49 @@
 		window.addEventListener('LazyLoad::Initialized', function (e) {
 			// Get the instance and puts it in the lazyLoadInstance variable
 			if (window.MutationObserver) {
-				var observer = new MutationObserver(function(mutations) {
-					mutations.forEach(function(mutation) {
-						mutation.addedNodes.forEach(function(node) {
+				var observer = new MutationObserver(function (mutations) {
+					mutations.forEach(function (mutation) {
+						mutation.addedNodes.forEach(function (node) {
 							if (typeof node.getElementsByTagName !== 'function') {
 								return;
 							}
 							imgs = node.getElementsByTagName('img');
-							if ( 0 === imgs.length ) {
+							if (0 === imgs.length) {
 								return;
 							}
 							lazyLoadInstance.update();
-						} );
-					} );
-				} );
-				var b      = document.getElementsByTagName("body")[0];
-				var config = { childList: true, subtree: true };
+						});
+					});
+				});
+				var b = document.getElementsByTagName("body")[0];
+				var config = {childList: true, subtree: true};
 				observer.observe(b, config);
 			}
 		}, false);
 
 		// Update LazyLoad images before Slide change
-		$( '.slick-slider' ).on( 'beforeChange', function() {
+		$('.slick-slider').on('beforeChange', function () {
 			lazyLoadInstance.update();
-		} );
+		});
 
 		// Detect element appearance in viewport
-		scrollOut = ScrollOut( {
-			offset: function() {
+		scrollOut = ScrollOut({
+			offset: function () {
 				return window.innerHeight - 200;
 			},
 			once: true,
-			onShown: function( element ) {
-				if ( $( element ).is( '.ease-order' ) ) {
-					$( element ).find( '.ease-order__item' ).each( function( i ) {
-						var $this = $( this );
-						$( this ).attr( 'data-scroll', '' );
-						window.setTimeout( function() {
-							$this.attr( 'data-scroll', 'in' );
-						}, 300 * i );
-					} );
+			onShown: function (element) {
+				if ($(element).is('.ease-order')) {
+					$(element).find('.ease-order__item').each(function (i) {
+						var $this = $(this);
+						$(this).attr('data-scroll', '');
+						window.setTimeout(function () {
+							$this.attr('data-scroll', 'in');
+						}, 300 * i);
+					});
 				}
 			}
-		} );
+		});
 
 
 		// Init parallax
@@ -174,69 +181,69 @@
 		});*/
 
 		// IE Object-fit cover polyfill
-		if ( $( '.of-cover, .stretched-img' ).length ) {
-			objectFitImages( '.of-cover, .stretched-img' );
+		if ($('.of-cover, .stretched-img').length) {
+			objectFitImages('.of-cover, .stretched-img');
 		}
 
 		//Remove placeholder on click
-		$( 'input,textarea' ).each( function() {
-			$( this ).data( 'holder', $( this ).attr( 'placeholder' ) );
+		$('input,textarea').each(function () {
+			$(this).data('holder', $(this).attr('placeholder'));
 
-			$( this ).on( 'focusin', function() {
-				$( this ).attr( 'placeholder', '' );
-			} );
+			$(this).on('focusin', function () {
+				$(this).attr('placeholder', '');
+			});
 
-			$( this ).on( 'focusout', function() {
-				$( this ).attr( 'placeholder', $( this ).data( 'holder' ) );
-			} );
-		} );
+			$(this).on('focusout', function () {
+				$(this).attr('placeholder', $(this).data('holder'));
+			});
+		});
 
 		//Make elements equal height
-		$( '.matchHeight' ).matchHeight();
+		$('.matchHeight').matchHeight();
 
 
 		// Add fancybox to images
-		$( '.gallery-item' ).find('a[href$="jpg"], a[href$="png"], a[href$="gif"]').attr( 'rel', 'gallery' ).attr( 'data-fancybox', 'gallery' );
-		$( 'a[rel*="album"], .fancybox, a[href$="jpg"], a[href$="png"], a[href$="gif"]' ).fancybox( {
+		$('.gallery-item').find('a[href$="jpg"], a[href$="png"], a[href$="gif"]').attr('rel', 'gallery').attr('data-fancybox', 'gallery');
+		$('a[rel*="album"], .fancybox, a[href$="jpg"], a[href$="png"], a[href$="gif"]').fancybox({
 			minHeight: 0,
 			helpers: {
 				overlay: {
 					locked: false
 				}
 			}
-		} );
+		});
 
 		/**
 		 * Scroll to Gravity Form confirmation message after form submit
 		 */
-		$( document ).on( 'gform_confirmation_loaded', function( event, formId ) {
-			var $target = $( '#gform_confirmation_wrapper_' + formId );
-			if ( $target.length ) {
-				$( 'html, body' ).animate( {
+		$(document).on('gform_confirmation_loaded', function (event, formId) {
+			var $target = $('#gform_confirmation_wrapper_' + formId);
+			if ($target.length) {
+				$('html, body').animate({
 					scrollTop: $target.offset().top - 50,
-				}, 500 );
+				}, 500);
 				return false;
 			}
-		} );
+		});
 
 		/**
 		 * Hide gravity forms required field message on data input
 		 */
-		$( 'body' ).on( 'change keyup', '.gfield input, .gfield textarea, .gfield select', function() {
-			var $field = $( this ).closest( '.gfield' );
-			if ( $field.hasClass( 'gfield_error' ) && $( this ).val().length ) {
-				$field.find( '.validation_message' ).hide();
-			} else if ( $field.hasClass( 'gfield_error' ) && !$( this ).val().length ) {
-				$field.find( '.validation_message' ).show();
+		$('body').on('change keyup', '.gfield input, .gfield textarea, .gfield select', function () {
+			var $field = $(this).closest('.gfield');
+			if ($field.hasClass('gfield_error') && $(this).val().length) {
+				$field.find('.validation_message').hide();
+			} else if ($field.hasClass('gfield_error') && !$(this).val().length) {
+				$field.find('.validation_message').show();
 			}
-		} );
+		});
 
 		/**
 		 * Close responsive menu on orientation change
 		 */
-		$( window ).on( 'orientationchange', function() {
-			$( '#main-menu' ).dropdown( 'hide' );
-		} );
+		$(window).on('orientationchange', function () {
+			$('#main-menu').dropdown('hide');
+		});
 
 		resizeVideo();
 
@@ -244,15 +251,15 @@
 		*  This function will render each map when the document is ready (page has loaded)
 		*/
 
-		$('.acf-map').each(function(){
-			render_map( $(this) );
+		$('.acf-map').each(function () {
+			render_map($(this));
 		});
 
 		scrollFunction();
 		$backToTopButton.on('click', function () {
 			scrollToTop();
 		});
-	} );
+	});
 
 
 	// Scripts which runs after all elements load

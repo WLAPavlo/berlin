@@ -9,25 +9,46 @@
 	backdrop-filter: none;
 	box-shadow: none;
 	transition: all 0.3s ease;
-	padding-top: 1.875rem;
 	overflow: visible;
+	margin-top: 1.85rem;
 
 	&.header--scrolled {
 		position: fixed;
 		top: 0;
 		background: rgba(47, 58, 85, 0.95);
 		backdrop-filter: blur(10px);
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		padding: 15px 0;
+		margin-top: 0;
+
+		.logo img {
+			padding: 0;
+		}
 	}
 
 	&.header--default {
+		position: absolute;
+		background: transparent;
+		backdrop-filter: none;
+		box-shadow: none;
+		z-index: 3;
+		margin: 0;
+	}
+
+	&.header--default--scrolled {
 		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 9999;
 		background: rgba(47, 58, 85, 0.95);
 		backdrop-filter: blur(10px);
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		padding: 15px 0;
+
+		.logo img {
+			padding: 0;
+		}
 	}
+
 
 	&.header--in-banner {
 		position: absolute;
@@ -36,6 +57,7 @@
 		box-shadow: none;
 		padding: 30px 0 0;
 		z-index: 3;
+		margin-top: 0 !important;
 
 		@include media-breakpoint-down(lg) {
 			padding: 20px 0 0;
@@ -47,7 +69,6 @@
 
 		.logo img {
 			max-height: 120px;
-			padding: 0;
 
 			@include media-breakpoint-down(lg) {
 				max-height: 80px;
@@ -80,6 +101,7 @@
 		@include media-breakpoint-down(md) {
 			.navbar-collapse {
 				background-color: rgba(47, 58, 85, 0.98);
+				z-index: 9999;
 			}
 		}
 	}
@@ -140,7 +162,6 @@
 	.header--scrolled & img,
 	.header--default & img {
 		max-height: 9.375rem;
-		padding: 0;
 
 		@include media-breakpoint-down(xl) {
 			max-height: 5rem;
