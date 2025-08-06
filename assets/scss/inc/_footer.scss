@@ -41,6 +41,7 @@
 		line-height: 1.6;
 		font-style: normal;
 		color: white;
+		font-weight: 400 !important;
 	}
 
 	a {
@@ -53,6 +54,21 @@
 		}
 	}
 
+	@include media-breakpoint-only(sm) {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: space-around;
+		justify-content: center;
+		gap: 10px;
+	}
+
+	@include media-breakpoint-only(xs) {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: space-around;
+		justify-content: center;
+		gap: 10px;
+	}
 }
 
 .footer__bottom {
@@ -325,9 +341,4 @@
 			min-height: 400px;
 		}
 	}
-}
-
-
-pre{
-	color: #ffffff;
 }

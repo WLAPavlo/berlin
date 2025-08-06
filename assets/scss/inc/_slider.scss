@@ -70,6 +70,10 @@
 			font-weight: 600;
 			margin-bottom: 2rem;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+			@include media-breakpoint-only(xs){
+				font-size: 45px;
+			}
 		}
 
 		.slider-content {

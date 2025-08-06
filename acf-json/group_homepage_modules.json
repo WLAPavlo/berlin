@@ -7,7 +7,6 @@
       "label": "Homepage Content",
       "name": "homepage_content",
       "type": "flexible_content",
-      "instructions": "",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -27,7 +26,6 @@
               "label": "Image",
               "name": "image",
               "type": "image",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -51,7 +49,6 @@
               "label": "Image Position",
               "name": "image_position",
               "type": "select",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -76,7 +73,6 @@
               "label": "Image Style",
               "name": "image_style",
               "type": "select",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -101,7 +97,6 @@
               "label": "Text Content",
               "name": "text_content",
               "type": "wysiwyg",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -130,7 +125,6 @@
               "label": "Tiles",
               "name": "tiles",
               "type": "repeater",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -149,7 +143,6 @@
                   "label": "Background Image",
                   "name": "background_image",
                   "type": "image",
-                  "instructions": "",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -174,7 +167,6 @@
                   "label": "Title",
                   "name": "title",
                   "type": "text",
-                  "instructions": "",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -194,7 +186,6 @@
                   "label": "Link",
                   "name": "link",
                   "type": "link",
-                  "instructions": "",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -222,7 +213,6 @@
               "label": "Background Image",
               "name": "background_image",
               "type": "image",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -246,7 +236,6 @@
               "label": "Mission Items",
               "name": "mission_items",
               "type": "repeater",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -265,7 +254,6 @@
                   "label": "Icon/Image",
                   "name": "icon",
                   "type": "image",
-                  "instructions": "",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -290,7 +278,6 @@
                   "label": "Learn More Link",
                   "name": "link",
                   "type": "link",
-                  "instructions": "",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -306,7 +293,6 @@
                   "label": "Content",
                   "name": "content",
                   "type": "wysiwyg",
-                  "instructions": "",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -338,7 +324,6 @@
               "label": "Background Image",
               "name": "background_image",
               "type": "image",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -362,7 +347,6 @@
               "label": "Content",
               "name": "content",
               "type": "wysiwyg",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -381,7 +365,6 @@
               "label": "Map Content",
               "name": "map_content",
               "type": "wysiwyg",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -400,7 +383,6 @@
               "label": "Google Map",
               "name": "google_map",
               "type": "google_map",
-              "instructions": "",
               "required": 0,
               "conditional_logic": 0,
               "wrapper": {
@@ -412,57 +394,6 @@
               "center_lng": "-75.2174",
               "zoom": 12,
               "height": ""
-            }
-          ],
-          "min": "",
-          "max": ""
-        },
-        "layout_staff_section": {
-          "key": "layout_staff_section",
-          "name": "staff_section",
-          "label": "Staff Section",
-          "display": "block",
-          "sub_fields": [
-            {
-              "key": "field_staff_section_title",
-              "label": "Section Title",
-              "name": "section_title",
-              "type": "text",
-              "instructions": "",
-              "required": 0,
-              "conditional_logic": 0,
-              "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-              },
-              "default_value": "Our Staff",
-              "placeholder": "",
-              "prepend": "",
-              "append": "",
-              "maxlength": ""
-            },
-            {
-              "key": "field_staff_categories_to_show",
-              "label": "Staff Categories to Show",
-              "name": "staff_categories",
-              "type": "taxonomy",
-              "instructions": "Select which staff categories to display",
-              "required": 0,
-              "conditional_logic": 0,
-              "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-              },
-              "taxonomy": "staff_category",
-              "field_type": "checkbox",
-              "allow_null": 0,
-              "add_term": 0,
-              "save_terms": 0,
-              "load_terms": 0,
-              "return_format": "object",
-              "multiple": 0
             }
           ],
           "min": "",
@@ -490,6 +421,5 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "Content modules for homepage",
   "modified": 1745938527
 }

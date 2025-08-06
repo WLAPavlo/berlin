@@ -3,11 +3,10 @@
   "title": "Staff Member Fields",
   "fields": [
     {
-      "key": "field_staff_position",
-      "label": "Position",
-      "name": "staff_position",
+      "key": "field_staff_contact_text",
+      "label": "Contact Button Text",
+      "name": "staff_contact_text",
       "type": "text",
-      "instructions": "Staff member's position or title",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -15,8 +14,8 @@
         "class": "",
         "id": ""
       },
-      "default_value": "",
-      "placeholder": "e.g. Lead Pastor, Associate Pastor",
+      "default_value": "CONTACT",
+      "placeholder": "CONTACT",
       "prepend": "",
       "append": "",
       "maxlength": ""
@@ -26,7 +25,6 @@
       "label": "Email Address",
       "name": "staff_email",
       "type": "email",
-      "instructions": "Staff member's email address for contact",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -35,7 +33,7 @@
         "id": ""
       },
       "default_value": "",
-      "placeholder": "email@church.org",
+      "placeholder": "email@example.com",
       "prepend": "",
       "append": ""
     }
@@ -56,6 +54,5 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "Fields for staff members",
   "modified": 1745938527
 }
