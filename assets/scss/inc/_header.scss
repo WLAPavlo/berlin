@@ -332,23 +332,35 @@
 				right: 0;
 				width: 50px;
 				height: 100%;
-				padding: 0;
 				border: none;
 				background-color: transparent;
 				box-shadow: none;
+				padding-top: 0;
 
-				&::after {
+				&::before {
 					content: '\f078';
 					font-family: $fa;
 					font-weight: 900;
 					padding-right: 3rem;
 					color: #ffffff;
 					@include position-center;
+					padding-top: 0rem;
 				}
 
 				&[aria-expanded="true"] {
+					&::before {
+						display: none;
+					}
+
 					&::after {
 						content: '\f077';
+						font-family: $fa;
+						font-weight: 900;
+						padding-right: 3rem;
+						color: #ffffff;
+						@include position-center;
+						padding-top: 4rem;
+						display: block;
 					}
 				}
 			}
@@ -359,7 +371,7 @@
 				text-align: left;
 
 				> a {
-					height: 4rem;
+					height: 1rem;
 					width: 100%;
 					max-width: 200px;
 					border-radius: 25px;

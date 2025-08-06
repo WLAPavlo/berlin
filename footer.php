@@ -36,7 +36,7 @@
                     </div>
                     <div class="footer-content">
                         <?php if ( $phone_label = get_field( 'phone_label', 'options' ) ): ?>
-                            <p style="margin-bottom: 5px; font-weight: 600;"><?php echo esc_html( $phone_label ); ?></p>
+                            <p style=""><?php echo esc_html( $phone_label ); ?></p>
                         <?php endif; ?>
                         <?php if ( $phone = get_field( 'phone', 'options' ) ): ?>
                             <p><a href="tel:<?php echo sanitize_number( $phone ); ?>"><?php echo $phone; ?></a></p>
