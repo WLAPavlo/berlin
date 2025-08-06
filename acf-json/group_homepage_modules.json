@@ -416,6 +416,57 @@
           ],
           "min": "",
           "max": ""
+        },
+        "layout_staff_section": {
+          "key": "layout_staff_section",
+          "name": "staff_section",
+          "label": "Staff Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_staff_section_title",
+              "label": "Section Title",
+              "name": "section_title",
+              "type": "text",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "Our Staff",
+              "placeholder": "",
+              "prepend": "",
+              "append": "",
+              "maxlength": ""
+            },
+            {
+              "key": "field_staff_categories_to_show",
+              "label": "Staff Categories to Show",
+              "name": "staff_categories",
+              "type": "taxonomy",
+              "instructions": "Select which staff categories to display",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "taxonomy": "staff_category",
+              "field_type": "checkbox",
+              "allow_null": 0,
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "object",
+              "multiple": 0
+            }
+          ],
+          "min": "",
+          "max": ""
         }
       },
       "button_label": "Add Row",
