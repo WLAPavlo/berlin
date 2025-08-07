@@ -50,6 +50,10 @@
 		box-shadow: none;
 		z-index: 3;
 		margin: 0;
+
+		.menu-container {
+			max-width: 1800px;
+		}
 	}
 
 	&.header--default--scrolled {
@@ -65,6 +69,10 @@
 		.logo img {
 			padding: 0;
 		}
+
+		.menu-container {
+			max-width: 1800px;
+		}
 	}
 
 
@@ -76,6 +84,10 @@
 		padding: 30px 0 0;
 		z-index: 3;
 		margin-top: 0 !important;
+
+		.menu-container {
+			max-width: 1800px;
+		}
 
 		@include media-breakpoint-down(lg) {
 			padding: 20px 0 0;
@@ -149,6 +161,8 @@
 	max-width: 1600px;
 	margin: 0 auto;
 	position: relative;
+
+
 }
 
 .logo {
@@ -610,7 +624,7 @@
 			padding: 0 !important;
 
 			> a {
-				background-color: #edbd2d;
+				background-color: $gold;
 				color: #0b1837;
 				height: 3.5rem;
 				width: 6rem;
@@ -628,8 +642,8 @@
 				font-size: 14px;
 
 				&:hover {
-					background: transparent;
-					color: #edbd2d;
+					background: #0b1837;
+					color: $gold;
 				}
 			}
 
