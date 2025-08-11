@@ -1,3 +1,36 @@
+body.admin-bar {
+	.header {
+		top: 32px;
+
+
+		&.header--scrolled{
+			top: 32px;
+		}
+
+		&.header--default{
+			top: 0;
+		}
+
+		&.header--default--scrolled{
+			top: 32px;
+		}
+
+		@media screen and (max-width: 990px) {
+			body.admin-bar {
+				.header,
+				.header--scrolled,
+				&.header--default--scrolled{
+					top: 70px;
+				}
+			}
+		}
+
+	}
+}
+
+
+
+
 .header {
 	position: absolute;
 	top: 0;

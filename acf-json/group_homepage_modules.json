@@ -121,6 +121,24 @@
           "display": "block",
           "sub_fields": [
             {
+              "key": "field_tiles_section_title",
+              "label": "Section Title",
+              "name": "section_title",
+              "type": "text",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": "",
+              "maxlength": ""
+            },
+            {
               "key": "field_tiles_list",
               "label": "Tiles",
               "name": "tiles",
@@ -136,7 +154,7 @@
               "min": 0,
               "max": 6,
               "layout": "block",
-              "button_label": "Add Tile",
+              "button_label": "Add Section",
               "sub_fields": [
                 {
                   "key": "field_tile_image",
@@ -247,11 +265,11 @@
               "min": 0,
               "max": 6,
               "layout": "block",
-              "button_label": "Add Mission Item",
+              "button_label": "Add Module",
               "sub_fields": [
                 {
                   "key": "field_mission_item_icon",
-                  "label": "Icon/Image",
+                  "label": "Icon",
                   "name": "icon",
                   "type": "image",
                   "required": 0,
@@ -274,10 +292,10 @@
                   "parent_repeater": "field_our_mission_items"
                 },
                 {
-                  "key": "field_mission_item_link",
-                  "label": "Learn More Link",
-                  "name": "link",
-                  "type": "link",
+                  "key": "field_mission_item_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -285,14 +303,18 @@
                     "class": "",
                     "id": ""
                   },
-                  "return_format": "array",
+                  "default_value": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "maxlength": "",
                   "parent_repeater": "field_our_mission_items"
                 },
                 {
-                  "key": "field_mission_item_content",
-                  "label": "Content",
-                  "name": "content",
-                  "type": "wysiwyg",
+                  "key": "field_mission_item_description",
+                  "label": "Short Description",
+                  "name": "description",
+                  "type": "textarea",
                   "required": 0,
                   "conditional_logic": 0,
                   "wrapper": {
@@ -301,10 +323,25 @@
                     "id": ""
                   },
                   "default_value": "",
-                  "tabs": "all",
-                  "toolbar": "full",
-                  "media_upload": 1,
-                  "delay": 0,
+                  "placeholder": "",
+                  "maxlength": "",
+                  "rows": 3,
+                  "new_lines": "br",
+                  "parent_repeater": "field_our_mission_items"
+                },
+                {
+                  "key": "field_mission_item_link",
+                  "label": "Learn More Link",
+                  "name": "link",
+                  "type": "link",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
                   "parent_repeater": "field_our_mission_items"
                 }
               ]
@@ -398,9 +435,61 @@
           ],
           "min": "",
           "max": ""
+        },
+        "layout_staff_section": {
+          "key": "layout_staff_section",
+          "name": "staff_section",
+          "label": "Staff Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_staff_categories_repeater",
+              "label": "Staff Categories (Drag to Reorder)",
+              "name": "staff_categories_ordered",
+              "type": "repeater",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "collapsed": "",
+              "min": 0,
+              "max": 0,
+              "layout": "table",
+              "button_label": "Add Section",
+              "sub_fields": [
+                {
+                  "key": "field_staff_category_select",
+                  "label": "Staff Category",
+                  "name": "category",
+                  "type": "taxonomy",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "taxonomy": "staff_category",
+                  "field_type": "select",
+                  "allow_null": 0,
+                  "add_term": 0,
+                  "save_terms": 0,
+                  "load_terms": 0,
+                  "return_format": "object",
+                  "multiple": 0,
+                  "parent_repeater": "field_staff_categories_repeater"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
         }
       },
-      "button_label": "Add Row",
+      "button_label": "Add Module",
       "min": "",
       "max": ""
     }

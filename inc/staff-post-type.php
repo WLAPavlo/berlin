@@ -115,63 +115,11 @@ add_action('init', 'create_default_staff_categories');
 
 // Add staff category metabox to staff edit screen
 function add_staff_category_metabox() {
-    add_meta_box(
-        'staff_category_metabox',
-        __('Staff Category', 'default'),
-        'staff_category_metabox_callback',
-        'staff',
-        'side',
-        'default'
-    );
+    // Remove the custom metabox since we're using the default taxonomy metabox
+    remove_meta_box('staff_categorydiv', 'staff', 'side');
 }
-add_action('add_meta_boxes', 'add_staff_category_metabox');
-
-// Staff category metabox callback
-function staff_category_metabox_callback($post) {
-    wp_nonce_field('save_staff_category', 'staff_category_nonce');
-
-    $terms = get_terms(array(
-        'taxonomy' => 'staff_category',
-        'hide_empty' => false,
-    ));
-
-    $current_terms = wp_get_post_terms($post->ID, 'staff_category', array('fields' => 'ids'));
-
-    echo '<div style="margin: 10px 0;">';
-    echo '<p><strong>' . __('Select staff category:', 'default') . '</strong></p>';
-
-    foreach ($terms as $term) {
-        $checked = in_array($term->term_id, $current_terms) ? 'checked="checked"' : '';
-        echo '<label style="display: block; margin: 5px 0;">';
-        echo '<input type="radio" name="staff_category[]" value="' . $term->term_id . '" ' . $checked . ' style="margin-right: 5px;">';
-        echo esc_html($term->name);
-        echo '</label>';
-    }
-    echo '</div>';
-}
-
-// Save staff category
-function save_staff_category($post_id) {
-    if (!isset($_POST['staff_category_nonce']) || !wp_verify_nonce($_POST['staff_category_nonce'], 'save_staff_category')) {
-        return;
-    }
-
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return;
-    }
-
-    if (!current_user_can('edit_post', $post_id)) {
-        return;
-    }
-
-    if (isset($_POST['staff_category']) && !empty($_POST['staff_category'])) {
-        $term_ids = array_map('intval', $_POST['staff_category']);
-        wp_set_post_terms($post_id, $term_ids, 'staff_category');
-    } else {
-        wp_set_post_terms($post_id, array(), 'staff_category');
-    }
-}
-add_action('save_post', 'save_staff_category');
+// Remove the duplicate metabox functionality since WordPress provides default taxonomy metabox
+// add_action('add_meta_boxes', 'add_staff_category_metabox');
 
 // Add custom column for staff category in admin
 function add_staff_category_column($columns) {
@@ -324,3 +272,77 @@ function save_quick_edit_staff_category($post_id) {
     }
 }
 add_action('save_post', 'save_quick_edit_staff_category');
+
+// Add instructions for staff ordering
+function add_staff_ordering_instructions() {
+    $screen = get_current_screen();
+    if ($screen && $screen->post_type === 'staff') {
+        echo '<div class="notice notice-info"><p><strong>:</strong></p></div>';
+    }
+}
+add_action('admin_notices', 'add_staff_ordering_instructions');
+
+// Enable drag and drop ordering for staff posts
+function enable_staff_drag_drop_ordering() {
+    $screen = get_current_screen();
+    if ($screen && $screen->post_type === 'staff' && $screen->base === 'edit') {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                if (typeof $.fn.sortable !== 'undefined') {
+                    $('#the-list').sortable({
+                        items: 'tr',
+                        cursor: 'move',
+                        axis: 'y',
+                        containment: 'parent',
+                        scrollSensitivity: 40,
+                        helper: function(e, ui) {
+                            ui.children().each(function() {
+                                $(this).width($(this).width());
+                            });
+                            return ui;
+                        },
+                        update: function(event, ui) {
+                            var order = $(this).sortable('toArray', {attribute: 'id'});
+                            $.post(ajaxurl, {
+                                action: 'update_staff_order',
+                                order: order,
+                                nonce: '<?php echo wp_create_nonce('staff_order_nonce'); ?>'
+                            });
+                        }
+                    });
+                }
+            });
+        </script>
+        <style>
+            #the-list tr { cursor: move; }
+            #the-list tr:hover { background-color: #f5f5f5; }
+        </style>
+        <?php
+    }
+}
+add_action('admin_footer', 'enable_staff_drag_drop_ordering');
+
+// Handle AJAX request for updating staff order
+function handle_staff_order_update() {
+    if (!wp_verify_nonce($_POST['nonce'], 'staff_order_nonce')) {
+        wp_die('Security check failed');
+    }
+
+    if (!current_user_can('edit_posts')) {
+        wp_die('Insufficient permissions');
+    }
+
+    $order = $_POST['order'];
+
+    foreach ($order as $position => $post_id) {
+        $post_id = (int) str_replace('post-', '', $post_id);
+        wp_update_post(array(
+            'ID' => $post_id,
+            'menu_order' => $position
+        ));
+    }
+
+    wp_die('Order updated successfully');
+}
+add_action('wp_ajax_update_staff_order', 'handle_staff_order_update');

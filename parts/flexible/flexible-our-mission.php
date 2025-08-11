@@ -13,10 +13,11 @@ if (!$mission_items || empty($mission_items)) {
             <?php foreach ($mission_items as $item): ?>
                 <?php
                 $icon = $item['icon'];
-                $content = $item['content'];
+                $title = $item['title'];
+                $description = $item['description'];
                 $link = $item['link'];
 
-                if (!$content) continue;
+                if (!$title) continue;
                 ?>
 
                 <div class="col-lg-6 col-md-6 col-12 mission-item-wrapper">
@@ -28,7 +29,13 @@ if (!$mission_items || empty($mission_items)) {
                         <?php endif; ?>
 
                         <div class="mission-item__content">
-                            <?php echo $content; ?>
+                            <?php if ($title): ?>
+                                <h3><?php echo esc_html($title); ?></h3>
+                            <?php endif; ?>
+
+                            <?php if ($description): ?>
+                                <p><?php echo esc_html($description); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <?php if ($link): ?>

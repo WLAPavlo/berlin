@@ -160,3 +160,9 @@ function theme_register_menus() {
     ) );
 }
 add_action( 'after_setup_theme', 'theme_register_menus' );
+
+add_action('init', function () {
+    if (isset($_GET['post']) && ($_GET['post'] == 2 || $_GET['post'] == 102)) {
+        remove_post_type_support('page', 'editor');
+    }
+});

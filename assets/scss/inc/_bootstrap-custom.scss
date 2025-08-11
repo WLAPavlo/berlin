@@ -189,6 +189,9 @@ $enable-responsive-font-sizes: true;
 $rfs-breakpoint: 767px;
 $rfs-base-font-size: 1rem;
 
+// Prevent horizontal scrollbar
+$enable-overflow-x-hidden: true;
+
 // Components
 //
 // Define common padding and border radius sizes and more.

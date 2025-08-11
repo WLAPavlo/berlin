@@ -1,13 +1,23 @@
 html {
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "pnum";
 }
 body {
   position: static !important;
   display: flex;
   flex-direction: column;
   height: auto;
-  min-height: 100vh;
-  background: url('../images/backgrounds.jpg') center center;
+  height: 100vh;
+  background: url('../images/backgrounds.jpg');
   background-size: cover;
   background-attachment: fixed;
   padding-top: 1.875rem;
@@ -106,7 +116,7 @@ ul.pagination {
 
       &.current {
         display: block;
-        background: $main-color;
+        background: $gold;
         color: #fff;
       }
     }

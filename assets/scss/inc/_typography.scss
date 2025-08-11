@@ -172,11 +172,41 @@ textarea[rows] {
 	}
 }
 
+a{
+	text-decoration: none !important;
+	color: $gold;
+	background-color: transparent;
+
+	&:hover, &:focus {
+		color: white;
+		text-decoration: none;
+	}
+}
 
 /* Button additional styles */
 
 .btn, .button {
+	margin: 10px 0 10px 0;
+	display: inline-block;
+	padding: 15px 35px;
+	border: 2px solid transparent;
+	border-radius: 50px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	background: #edbd2d;
+	color: #2f3a55;
+	border-color: #edbd2d;
+
 	&:hover, &:focus {
-		/*basic hover and focus effects*/
+		background: transparent;
+		color: #edbd2d;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
+		text-decoration: none;
 	}
 }

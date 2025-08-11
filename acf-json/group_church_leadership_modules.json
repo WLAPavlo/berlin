@@ -37,7 +37,7 @@
               "min": 0,
               "max": 0,
               "layout": "table",
-              "button_label": "Add Staff Category",
+              "button_label": "Add Section",
               "sub_fields": [
                 {
                   "key": "field_staff_category_select",
@@ -68,7 +68,7 @@
           "max": ""
         }
       },
-      "button_label": "Add Row",
+      "button_label": "Add Module",
       "min": "",
       "max": ""
     }

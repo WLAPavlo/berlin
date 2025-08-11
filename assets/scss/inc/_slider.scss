@@ -25,6 +25,13 @@
 	border-radius: 2rem;
 	overflow: hidden;
 
+	img, video {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		height: 100%;
+	}
+
 	.slick-slide {
 		width: 100%;
 		height: 850px;
@@ -93,15 +100,8 @@
 			text-align: center;
 			flex-wrap: wrap;
 
-
 			.slider-btn {
-				padding: 15px 35px;
-				border: 2px solid transparent;
-				border-radius: 50px;
-				font-weight: 600;
-				text-decoration: none;
-				transition: all 0.3s ease;
-				display: inline-block;
+				@extend .button;
 				font-size: 27px;
 
 				@include media-breakpoint-down(md) {
@@ -109,31 +109,17 @@
 					flex-direction: column-reverse;
 					width: 85%;
 					margin: 0 auto;
-
-				}
-
-				&.btn-primary {
-					background: #edbd2d;
-					color: $text-color;
-					border-color: #edbd2d;
-
-					&:hover {
-						background: transparent;
-						color: $gold;
-						transform: translateY(-2px);
-						box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
-					}
+					font-size: 18px;
 				}
 
 				&.btn-secondary {
 					background: #759dfd;
-					color: $text-color;
 					border-color: #759dfd;
 
 					&:hover {
 						background: transparent;
-						color: $gold;
-						transform: translateY(-2px);
+						color: #759dfd;
+						border-color: #759dfd;
 						box-shadow: 0 5px 15px rgba(117, 157, 253, 0.4);
 					}
 				}

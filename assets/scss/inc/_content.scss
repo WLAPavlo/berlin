@@ -1,12 +1,44 @@
 .main-content {
   padding-top: 50px;
   padding-bottom: 50px;
+
+  // WYSIWYG content styling
+  .entry__content,
+  .contact-form-map__content,
+  .contact-form-map__map-content,
+  .image-text__content {
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: lighten($gold, 10%) !important;
+        text-decoration: none;
+      }
+    }
+
+    .button, .btn {
+      padding: 10px 25px !important;
+      font-size: 14px !important;
+      height: auto !important;
+      line-height: 1.4 !important;
+    }
+  }
 }
 
 /* Comments block */
 
 #comments {
   padding-top: 30px;
+
+  a {
+    color: $gold !important;
+    text-decoration: underline;
+
+    &:hover {
+      color: lighten($gold, 10%) !important;
+      text-decoration: none;
+    }
+  }
 }
 
 .comment-list {

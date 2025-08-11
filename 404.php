@@ -9,7 +9,7 @@ get_header(); ?>
     <div class="grid-x">
         <div class="col-12 text-center">
             <h3><?php _e( 'Keep on looking...', 'default' ); ?></h3>
-            <p><?php printf( __( 'Double check the URL or head back to the <a class="label" href="%1s">HOMEPAGE</a>', 'default' ), get_bloginfo( 'url' ) ); ?></p>
+            <p><?php printf( __( 'Double check the URL or head back to the <a class="button" href="%1s">HOMEPAGE</a>', 'default' ), get_bloginfo( 'url' ) ); ?></p>
         </div>
     </div>
 </div>
