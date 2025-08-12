@@ -6,6 +6,16 @@
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #ddd;
+	a{
+		text-decoration: none;
+		color: $text-color;
+
+		&:hover, &:focus {
+			color: $gold;
+			text-decoration: none;
+		}
+	}
+
 }
 
 .preview__meta {
@@ -37,3 +47,4 @@
 .entry__cat {
 	margin-top: 20px;
 }
+

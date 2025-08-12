@@ -501,6 +501,13 @@
         "operator": "==",
         "value": "templates/template-home.php"
       }
+    ],
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/template-church-leadership.php"
+      }
     ]
   ],
   "menu_order": 0,

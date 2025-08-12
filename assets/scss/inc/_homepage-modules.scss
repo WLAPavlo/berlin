@@ -2,6 +2,36 @@
 	Homepage Content Modules
 --------------------------------------- */
 
+// Standard button styling
+.button, .btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px 5px 5px 0;
+  padding: 15px 35px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  background: #edbd2d;
+  color: #2f3a55;
+  border-color: #edbd2d;
+  width: 200px;
+
+  &:hover, &:focus {
+    background: transparent;
+    color: #edbd2d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
+    text-decoration: none;
+  }
+}
+
 // Image with Text Module
 .image-text-module {
   border-radius: 20px;
@@ -76,7 +106,7 @@
   }
 
   .button, .btn {
-    margin-top: 20px;
+    @extend .button;
   }
 }
 
@@ -269,48 +299,42 @@
 }
 
 // Contact Form with Map Module - Dark Theme - Improved
-.contact-form-map-module .gform_wrapper .gform_body .gfield,
-.contact-form-map__form-wrapper .gform_wrapper .gform_body .gfield,
-body .contact-form-map-module .gform_wrapper .gform_body .gfield,
-.gform_wrapper .gform_body .gfield {
-  margin-bottom: 3px !important;
-  margin-top: 0 !important;
-  padding-bottom: 0 !important;
+.contact-form-map-module .gform_wrapper .gform_body .gfield {
+  margin-bottom: 3px;
+  margin-top: 0;
+  padding-bottom: 0;
 }
 
-.contact-form-map-module .gform_wrapper .gform_footer,
-.contact-form-map__form-wrapper .gform_wrapper .gform_footer,
-body .contact-form-map-module .gform_wrapper .gform_footer,
-.gform_wrapper .gform_footer {
-  margin-top: 8px !important;
-  padding-top: 0 !important;
+.contact-form-map-module .gform_wrapper .gform_footer {
+  margin-top: 8px;
+  padding-top: 0;
 }
 
 .contact-form-map-module {
-  padding: 80px 0 !important;
-  position: relative !important;
-  z-index: 5 !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
+  padding: 80px 0;
+  position: relative;
+  z-index: 5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   @include media-breakpoint-down(md) {
-    padding: 60px 0 !important;
-    background-attachment: scroll !important;
+    padding: 60px 0;
+    background-attachment: scroll;
   }
 
   @include media-breakpoint-down(sm) {
-    padding: 60px 0 !important;
+    padding: 60px 0;
   }
 }
 
 .contact-form-map__content {
-  align-items: stretch !important;
+  align-items: stretch;
 
   @include media-breakpoint-down(sm) {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -343,18 +367,18 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 
 .contact-form-map__content {
   h1, h2, h3, h4, h5, h6 {
-    color: white !important;
-    font-size: 44px !important;
-    font-weight: 600 !important;
-    margin-bottom: 15px !important;
-    text-align: left !important;
+    color: white;
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: left;
 
     @include media-breakpoint-down(lg) {
-      font-size: 28px !important;
+      font-size: 28px;
     }
 
     @include media-breakpoint-down(md) {
-      font-size: 24px !important;
+      font-size: 24px;
     }
 
     @include media-breakpoint-down(sm) {
@@ -364,42 +388,52 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   }
 
   p {
-    color: #ffffff !important;
-    font-size: 20px !important;
-    text-align: left !important;
-    margin-bottom: 30px !important;
-    line-height: 1.5 !important;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+    line-height: 1.5;
 
     @include media-breakpoint-down(md) {
-      font-size: 15px !important;
-      margin-bottom: 25px !important;
+      font-size: 15px;
+      margin-bottom: 25px;
     }
 
     @include media-breakpoint-down(sm) {
-      font-size: 18px !important;
-      margin-bottom: 20px !important;
-      text-align: left !important;
-      padding-left: 0 !important;
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: left;
+      padding-left: 0;
+    }
+  }
+
+  a{
+    text-decoration: none !important;
+    color: white;
+
+    &:hover, &:focus {
+      color: $gold;
+      text-decoration: none;
     }
   }
 }
 
 .contact-form-map__map-content {
-  margin-bottom: 25px !important;
+  margin-bottom: 25px;
 
   h1, h2, h3, h4, h5, h6 {
-    color: white !important;
-    font-size: 44px !important;
-    font-weight: 600 !important;
-    margin-bottom: 15px !important;
-    text-align: left !important;
+    color: white;
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: left;
 
     @include media-breakpoint-down(lg) {
-      font-size: 36px !important;
+      font-size: 36px;
     }
 
     @include media-breakpoint-down(md) {
-      font-size: 32px !important;
+      font-size: 32px;
     }
 
     @include media-breakpoint-down(sm) {
@@ -409,15 +443,15 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
   }
 
   p {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 20px !important;
-    font-weight: 500 !important;
-    text-align: left !important;
-    margin-bottom: 0 !important;
-    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 0;
+    line-height: 1.4;
 
     @include media-breakpoint-down(md) {
-      font-size: 16px !important;
+      font-size: 16px;
     }
 
     @include media-breakpoint-down(sm) {
@@ -430,25 +464,25 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 
 .contact-form-map__content {
   .gform_wrapper {
-    margin-top: 0 !important;
+    margin-top: 0;
 
     .gform_fields {
       .gfield {
-        margin-bottom: 3px !important;
+        margin-bottom: 3px;
 
         &.gf_left_half,
         &.gf_right_half {
-          width: 100% !important;
-          float: none !important;
-          margin-right: 0 !important;
-          margin-left: 0 !important;
+          width: 100%;
+          float: none;
+          margin-right: 0;
+          margin-left: 0;
         }
 
         .gfield_label {
-          color: white !important;
-          font-weight: 500 !important;
-          margin-bottom: 8px !important;
-          display: block !important;
+          color: white;
+          font-weight: 500;
+          margin-bottom: 8px;
+          display: block;
         }
 
         input[type="text"],
@@ -548,15 +582,15 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
     }
 
     .gform_footer {
-      text-align: center !important;
-      margin-top: 8px !important;
+      text-align: center;
+      margin-top: 8px;
 
       input[type="submit"],
       .gform_button {
-        background: white;
-        color: #1e293b;
-        border: none;
-        padding: 15px 30px;
+        background: #edbd2d;
+        color: #2f3a55;
+        border: 2px solid #edbd2d;
+        padding: 15px 35px;
         border-radius: 50px;
         font-size: 16px;
         font-weight: 600;
@@ -564,20 +598,21 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
         letter-spacing: 0.5px;
         cursor: pointer;
         transition: all 0.3s ease;
-        min-width: 120px;
-        max-width: 200px;
+        min-width: 150px;
         width: auto;
         display: inline-block;
 
         &:hover {
-          background: $gold;
+          background: transparent;
+          color: #edbd2d;
+          border-color: #edbd2d;
           transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
         }
 
         &:focus {
           outline: none;
-          box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 0 0 3px rgba(237, 189, 45, 0.3);
         }
       }
     }
@@ -614,207 +649,173 @@ body .contact-form-map-module .gform_wrapper .gform_footer,
 }
 
 .custom-contact-form {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 3px !important;
-  color: white !important;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: white;
 }
 
 .custom-contact-form input[type="text"],
 .custom-contact-form input[type="email"],
 .custom-contact-form input[type="tel"] {
-  width: 100% !important;
-  padding: 18px 20px !important;
-  border: none !important;
-  border-radius: 15px !important;
-  font-size: 1rem !important;
-  background: white !important;
-  color: #333 !important;
-  box-sizing: border-box !important;
-  transition: all 0.3s ease !important;
-  height: 56px !important;
+  width: 100%;
+  padding: 18px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  height: 56px;
 
   &:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
   }
 
   &::placeholder {
-    color: #999 !important;
+    color: #999;
   }
 }
 
 .custom-contact-form textarea {
-  width: 100% !important;
-  padding: 15px 20px !important;
-  border: none !important;
-  border-radius: 15px !important;
-  font-size: 1rem !important;
-  background: white !important;
-  color: #333 !important;
-  box-sizing: border-box !important;
-  transition: all 0.3s ease !important;
-  min-height: 120px !important;
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  min-height: 120px;
 
   &:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
   }
 
   &::placeholder {
-    color: #999 !important;
+    color: #999;
   }
 }
 
 .custom-contact-form input[type="submit"] {
-  background: white !important;
-  color: #1e293b !important;
-  border: none !important;
-  padding: 10px 25px !important;
-  border-radius: 50px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  margin: 8px auto 0 !important;
-  display: block !important;
-  min-width: 120px !important;
-  height: auto !important;
-  line-height: 1.4 !important;
+  @extend .button;
+  background: white;
+  color: #1e293b;
+  margin: 8px auto 0;
+  display: block;
+  min-width: 120px;
 }
 
 .custom-contact-form input[type="submit"]:hover {
-  background: $gold !important;
-  transform: translateY(-2px) !important;
+  background: $gold;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-
   .custom-contact-form input[type="submit"] {
-    width: 100% !important;
+    width: 100%;
   }
 }
 
-body .gform_wrapper .gform_body .gfield input[type="text"],
-body .gform_wrapper .gform_body .gfield input[type="email"],
-body .gform_wrapper .gform_body .gfield input[type="tel"],
-body .gform_wrapper .gform_body .gfield select {
-  width: 100% !important;
-  padding: 18px 20px !important;
-  border: none !important;
-  border-radius: 15px !important;
-  font-size: 16px !important;
-  background: white !important;
-  color: #333 !important;
-  box-sizing: border-box !important;
-  transition: all 0.3s ease !important;
-  height: 56px !important;
-  margin-bottom: -25px !important;
+.gform_wrapper .gform_body .gfield input[type="text"],
+.gform_wrapper .gform_body .gfield input[type="email"],
+.gform_wrapper .gform_body .gfield input[type="tel"],
+.gform_wrapper .gform_body .gfield select {
+  width: 100%;
+  padding: 18px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  height: 56px;
+  margin-bottom: -25px;
 
   &:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
   }
 
   &::placeholder {
-    color: #999 !important;
+    color: #999;
   }
 }
 
-body .gform_wrapper .gform_body .gfield textarea {
-  width: 100% !important;
-  padding: 15px 20px !important;
-  border: none !important;
-  border-radius: 15px !important;
-  font-size: 16px !important;
-  background: white !important;
-  color: #333 !important;
-  box-sizing: border-box !important;
-  transition: all 0.3s ease !important;
-  height: 200px !important;
-  resize: vertical !important;
+.gform_wrapper .gform_body .gfield textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  height: 200px;
+  resize: vertical;
 
   &:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
   }
 
   &::placeholder {
-    color: #999 !important;
+    color: #999;
   }
 }
 
-body .gform_wrapper .gform_footer input[type="submit"],
-body .gform_wrapper .gform_footer .gform_button {
-  background: white !important;
-  color: #1e293b !important;
-  border: none !important;
-  padding: 10px 25px !important;
-  border-radius: 50px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  min-width: 120px !important;
-  height: auto !important;
-  line-height: 1.4 !important;
-  transition: all 0.3s ease !important;
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper .gform_footer .gform_button {
+  @extend .button;
+  background: white;
+  color: #1e293b;
+  min-width: 120px;
 
   &:hover {
-    background: $gold !important;
-    transform: translateY(-2px) !important;
+    background: $gold;
+    transform: translateY(-2px);
   }
 }
 
-body .gform_wrapper .gform_body .gfield .gfield_label {
-  color: white !important;
-  font-weight: 500 !important;
-  margin-bottom: 8px !important;
-  display: block !important;
+.gform_wrapper .gform_body .gfield .gfield_label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
 }
 
-body .gform_wrapper .gform_body .gfield .gfield_required {
-  color: rgba(255, 255, 255, 0.8) !important;
+.gform_wrapper .gform_body .gfield .gfield_required {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-body .gform_wrapper .gform_body .gfield .validation_message {
-  color: #ff6b6b !important;
-  font-size: 14px !important;
-  margin-top: 3rem !important;
+.gform_wrapper .gform_body .gfield .validation_message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 3rem;
   padding-left: 1rem;
 }
 
-body .gform_wrapper .gform_body .gfield {
-  margin-bottom: 10px !important;
+.gform_wrapper .gform_body .gfield {
+  margin-bottom: 10px;
 }
 
-body .gform_wrapper .gform_footer {
-  margin-top: 15px !important;
-}
-
-.contact-form-map-module .gform_wrapper .gform_body .gfield {
-  margin-bottom: 8px !important;
-}
-
-.contact-form-map-module .gform_wrapper .gform_footer {
-  margin-top: 15px !important;
-}
-
-.contact-form-map__form-wrapper .gform_wrapper .gform_body .gfield {
-  margin-bottom: 8px !important;
-}
-
-.contact-form-map__form-wrapper .gform_wrapper .gform_footer {
-  margin-top: 15px !important;
+.gform_wrapper .gform_footer {
+  margin-top: 15px;
 }
 
 .custom-contact-form > * {
-  margin-bottom: 8px !important;
+  margin-bottom: 8px;
 }
 
 .custom-contact-form input[type="submit"] {
-  margin-top: -20px !important;
-  margin-bottom: 0 !important;
+  margin-top: -20px;
+  margin-bottom: 0;
 }
 
 .contact-form-map__address {
@@ -847,4 +848,67 @@ body .gform_wrapper .gform_footer {
   @include media-breakpoint-down(sm) {
     margin-bottom: 20px;
   }
+}
+
+.contact-form-map-module .gform_wrapper .gform_footer input[type="submit"],
+.contact-form-map-module .gform_wrapper .gform_footer .gform_button,
+.contact-form-map-module .custom-contact-form input[type="submit"] {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 8px auto 0 !important;
+  padding: 15px 35px !important;
+  border: 2px solid white !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-size: 16px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  background: white !important;
+  color: #2f3a55 !important;
+  width: 200px !important;
+  min-width: 200px !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+
+  &:hover {
+    background: transparent !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4) !important;
+    text-decoration: none !important;
+  }
+}
+
+.contact-form-map-module .gform_wrapper .gform_footer input[type="submit"]:focus,
+.contact-form-map-module .gform_wrapper .gform_footer .gform_button:focus,
+.contact-form-map-module .custom-contact-form input[type="submit"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
+}
+
+.contact-form-map-module .gform_wrapper .gform_footer input[type="submit"]::before,
+.contact-form-map-module .gform_wrapper .gform_footer .gform_button::before {
+  content: none !important;
+}
+
+.contact-form-map-module .gform_wrapper .gform_footer input[type="submit"]::after,
+.contact-form-map-module .gform_wrapper .gform_footer .gform_button::after {
+  content: none !important;
+}
+
+.gform_footer input[type="submit"][style] {
+  background: #edbd2d !important;
+  color: #2f3a55 !important;
+  border: 2px solid #edbd2d !important;
+  border-radius: 50px !important;
+  padding: 15px 35px !important;
+  width: 200px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-size: 16px !important;
 }

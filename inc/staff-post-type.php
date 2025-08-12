@@ -22,29 +22,37 @@ function register_staff_post_type() {
     );
 
     $args = array(
-        'labels'        => $labels,
-        'description'   => 'Church Staff Members',
-        'public'        => true,
-        'show_ui'       => true,
-        'show_in_menu'  => true,
-        'menu_icon'     => 'dashicons-groups',
-        'menu_position' => 6,
-        'supports'      => array(
+        'labels'             => $labels,
+        'description'        => 'Church Staff Members',
+        'public'             => true,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'menu_icon'          => 'dashicons-groups',
+        'menu_position'      => 6,
+        'supports'           => array(
             'title',
             'editor',
             'thumbnail',
             'page-attributes'
         ),
-        'has_archive'   => false,
-        'hierarchical'  => false,
-        'rewrite'       => array('slug' => 'staff'),
-        'capability_type' => 'post'
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'rewrite'            => false,
+        'capability_type'    => 'post'
     );
 
     register_post_type('staff', $args);
 }
 
 add_action('init', 'register_staff_post_type');
+
+add_action('template_redirect', function() {
+    if (is_singular('staff')) {
+        wp_redirect(home_url());
+        exit;
+    }
+});
 
 // Register Staff Category Taxonomy
 function register_staff_category_taxonomy() {

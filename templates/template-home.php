@@ -34,8 +34,4 @@ get_header(); ?>
 </div>
 <!-- END of main content -->
 
-<script>
-    document.body.classList.add('home');
-</script>
-
 <?php get_footer(); ?>

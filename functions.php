@@ -103,6 +103,18 @@ function lazyload() {
 add_action( 'template_redirect', 'lazyload' );
 
 /**
+ * Add body classes via hook instead of inline script
+ */
+function add_custom_body_classes($classes) {
+    if (is_page_template('templates/template-home.php') || is_front_page()) {
+        $classes[] = 'home';
+    }
+
+    return $classes;
+}
+add_filter('body_class', 'add_custom_body_classes');
+
+/**
  * @param string $html HTML content.
  *
  * @return string

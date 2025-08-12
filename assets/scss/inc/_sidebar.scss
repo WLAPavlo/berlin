@@ -1,13 +1,49 @@
-.sidebar {
-	@include media-breakpoint-down(sm) {
-		margin-top: 50px;
-	}
-}
 
 .widget {
 	margin-bottom: 20px;
+	padding: 20px;
+	background: white;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	h5.widget__title {
+		color: $title-color;
+		font-weight: 600;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+		border-bottom: 2px solid #edbd2d;
+	}
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			margin-bottom: 8px;
+			padding-left: 20px;
+			position: relative;
+
+			&::before {
+				content: '→';
+				position: absolute;
+				left: 0;
+				color: #edbd2d;
+				font-weight: bold;
+			}
+
+			a {
+				color: $text-color;
+				text-decoration: none;
+
+				&:hover {
+					color: #edbd2d;
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 }

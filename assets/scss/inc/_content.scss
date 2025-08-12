@@ -11,16 +11,13 @@
       text-decoration: underline;
 
       &:hover {
-        color: lighten($gold, 10%) !important;
+        color: lighten($gold, 10%);
         text-decoration: none;
       }
     }
 
     .button, .btn {
-      padding: 10px 25px !important;
-      font-size: 14px !important;
-      height: auto !important;
-      line-height: 1.4 !important;
+      @extend .button;
     }
   }
 }
@@ -31,11 +28,11 @@
   padding-top: 30px;
 
   a {
-    color: $gold !important;
+    color: $gold;
     text-decoration: underline;
 
     &:hover {
-      color: lighten($gold, 10%) !important;
+      color: lighten($gold, 10%);
       text-decoration: none;
     }
   }
