@@ -18,6 +18,11 @@
     <!-- Add external fonts below (GoogleFonts / Typekit) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
+    <!-- Google Maps API -->
+    <?php if (get_theme_mod('google_maps_api')): ?>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo esc_attr(get_theme_mod('google_maps_api')); ?>"></script>
+    <?php endif; ?>
+
     <?php wp_head(); ?>
 </head>
 

@@ -32,8 +32,8 @@ if (!$tiles || empty($tiles)) {
             if ($link) {
                 $tile_attrs = sprintf(
                     'href="%s"%s%s',
-                    esc_url($link['url']),
-                    $link['target'] ? ' target="' . esc_attr($link['target']) . '"' : '',
+                    $link['url'],
+                    $link['target'] ? ' target="' . $link['target'] . '"' : '',
                     $link['target'] === '_blank' ? ' rel="noopener noreferrer"' : ''
                 );
             }
@@ -43,7 +43,7 @@ if (!$tiles || empty($tiles)) {
                 <<?php echo $tile_tag; ?> class="tile-item" <?php echo $tile_attrs; ?>>
                 <div class="tile-item__image" <?php bg($background_image, 'large'); ?>></div>
                 <div class="tile-item__content">
-                    <h3 class="tile-item__title"><?php echo esc_html($title); ?></h3>
+                    <h3 class="tile-item__title"><?php echo $title; ?></h3>
                 </div>
             </<?php echo $tile_tag; ?>>
         </div>

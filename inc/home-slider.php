@@ -294,7 +294,7 @@ function home_slider_template() { ?>
 
                 </div>
             <?php endwhile; ?>
-        </div><!-- END of  #home-slider-->
+        </div><!-- END of home slider-->
     <?php endif;
     wp_reset_query(); ?>
 <?php }

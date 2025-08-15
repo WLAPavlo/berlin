@@ -30,18 +30,18 @@ if (!$mission_items || empty($mission_items)) {
 
                         <div class="mission-item__content">
                             <?php if ($title): ?>
-                                <h3><?php echo esc_html($title); ?></h3>
+                                <h3><?php echo $title; ?></h3>
                             <?php endif; ?>
 
                             <?php if ($description): ?>
-                                <p><?php echo esc_html($description); ?></p>
+                                <p><?php echo $description; ?></p>
                             <?php endif; ?>
                         </div>
 
                         <?php if ($link): ?>
-                            <a href="<?php echo esc_url($link['url']); ?>"
+                            <a href="<?php echo $link['url']; ?>"
                                class="mission-item__link"
-                               <?php if ($link['target']): ?>target="<?php echo esc_attr($link['target']); ?>"<?php endif; ?>>
+                               <?php if ($link['target']): ?>target="<?php echo $link['target']; ?>"<?php endif; ?>>
                                 <?php echo $link['title'] ?: 'Learn More'; ?>
                             </a>
                         <?php endif; ?>

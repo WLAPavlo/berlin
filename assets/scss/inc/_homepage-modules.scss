@@ -2,34 +2,11 @@
 	Homepage Content Modules
 --------------------------------------- */
 
+@import 'mixins';
+
 // Standard button styling
 .button, .btn {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 5px 5px 5px 0;
-  padding: 15px 35px;
-  border: 2px solid transparent;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  background: #edbd2d;
-  color: #2f3a55;
-  border-color: #edbd2d;
-  width: 200px;
-
-  &:hover, &:focus {
-    background: transparent;
-    color: #edbd2d;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
-    text-decoration: none;
-  }
+  @include button-primary;
 }
 
 // Image with Text Module
@@ -106,7 +83,7 @@
   }
 
   .button, .btn {
-    @extend .button;
+    @include button-primary;
   }
 }
 
@@ -361,7 +338,7 @@
     padding: 20px;
     border-radius: 28px;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 20px;
   }
 }
 
@@ -457,7 +434,7 @@
     @include media-breakpoint-down(sm) {
       font-size: 18px;
       text-align: left;
-      padding-left: 20px;
+      padding-left: 0;
     }
   }
 }
@@ -640,11 +617,17 @@
     border-radius: 25px;
   }
 
-  iframe {
+  iframe,
+  .acf-map {
     width: 100%;
     height: 100%;
     border-radius: inherit;
     border: none;
+  }
+
+  .acf-map {
+    position: relative;
+    overflow: hidden;
   }
 }
 
@@ -702,7 +685,7 @@
 }
 
 .custom-contact-form input[type="submit"] {
-  @extend .button;
+  @include button-primary;
   background: white;
   color: #1e293b;
   margin: 8px auto 0;
@@ -772,7 +755,7 @@
 
 .gform_wrapper .gform_footer input[type="submit"],
 .gform_wrapper .gform_footer .gform_button {
-  @extend .button;
+  @include button-primary;
   background: white;
   color: #1e293b;
   min-width: 120px;
@@ -825,28 +808,6 @@
   @include media-breakpoint-down(sm) {
     text-align: left;
     font-size: 18px;
-  }
-}
-
-.contact-form-map__form-wrapper {
-  @include media-breakpoint-down(md) {
-    margin-bottom: 30px;
-  }
-
-  @include media-breakpoint-down(sm) {
-    margin-bottom: 40px;
-  }
-}
-
-.contact-form-map__map-wrapper {
-  @include media-breakpoint-down(sm) {
-    margin-bottom: 30px;
-  }
-}
-
-.contact-form-map__map-content {
-  @include media-breakpoint-down(sm) {
-    margin-bottom: 20px;
   }
 }
 

@@ -102,6 +102,19 @@
 	@include media-breakpoint-down(sm) {
 		gap: 8px;
 	}
+
+	// Remove white dots/bullets from footer content
+	ul {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+	}
+
+	li {
+		&::before {
+			display: none;
+		}
+	}
 }
 
 .footer-bottom-left {
