@@ -21,9 +21,9 @@ get_header(); ?>
             </div>
         </div>
 
-        <!-- BEGIN of church leadership modules -->
-        <?php if (have_rows('church_leadership_content')): ?>
-            <?php while (have_rows('church_leadership_content')): the_row(); ?>
+        <!-- BEGIN of homepage modules -->
+        <?php if (have_rows('homepage_content')): ?>
+            <?php while (have_rows('homepage_content')): the_row(); ?>
                 <?php
                 $layout = get_row_layout();
                 $template_file = 'parts/flexible/flexible-' . str_replace('_', '-', $layout);
@@ -31,7 +31,7 @@ get_header(); ?>
                 ?>
             <?php endwhile; ?>
         <?php endif; ?>
-        <!-- END of church leadership modules -->
+        <!-- END of homepage modules -->
     </main>
 
 <?php get_footer(); ?>

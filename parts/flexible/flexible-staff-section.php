@@ -46,7 +46,7 @@ if (!$staff_categories || is_wp_error($staff_categories)) {
             if ($staff_query->have_posts()):
                 ?>
                 <div class="staff-category-section" data-category="<?php echo esc_attr($category->slug); ?>">
-                    <h3 class="staff-category-title" data-category="<?php echo esc_attr($category->slug); ?>"><?php echo esc_html($category->name); ?></h3>
+                    <h3 class="staff-category-title"><?php echo $category->name; ?></h3>
                     <?php
                     // Count staff members to determine grid alignment
                     $staff_count = $staff_query->found_posts;
@@ -83,7 +83,7 @@ if (!$staff_categories || is_wp_error($staff_categories)) {
                                             <a href="mailto:<?php echo esc_attr($staff_email); ?>"
                                                class="staff-member__contact"
                                                rel="noopener">
-                                                <?php echo esc_html($staff_contact_text); ?>
+                                                <?php echo $staff_contact_text; ?>
                                             </a>
                                         <?php endif; ?>
                                     </div>

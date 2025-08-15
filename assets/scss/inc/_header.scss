@@ -657,27 +657,10 @@ body.admin-bar {
 			padding: 0 !important;
 
 			> a {
-				background-color: $gold;
-				color: #0b1837;
-				height: 3.5rem;
-				width: 6rem;
-				text-align: left;
-				border-radius: 0 1.5rem 0 0;
-				font-weight: 700;
+				@include button-nav;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 0 !important;
-				margin: 0 0 0 8px !important;
-				transition: all 0.3s ease;
-				text-transform: uppercase;
-				text-decoration: none;
-				font-size: 14px;
-
-				&:hover {
-					background: #0b1837;
-					color: $gold;
-				}
 			}
 
 			&.active > a {

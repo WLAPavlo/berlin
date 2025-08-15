@@ -27,14 +27,8 @@ include_once get_stylesheet_directory() . '/inc/custom-fields-search.php';
 include_once get_stylesheet_directory() . '/inc/google-maps.php';
 // TinyMCE Customizations
 include_once get_stylesheet_directory() . '/inc/tiny-mce-customizations.php';
-// Gravity Forms Customizations
-//include_once get_stylesheet_directory() . '/inc/gravity-forms-customizations.php';
 // Theme Customizations
 include_once get_stylesheet_directory() . '/inc/theme-customizations.php';
-// WooCommerce functionality
-//include_once get_stylesheet_directory() . '/inc/woo-custom.php';
-// Include all additional shortcodes
-//include_once get_stylesheet_directory() . '/inc/shortcodes.php';
 // Staff Custom Post Type
 include_once get_stylesheet_directory() . '/inc/staff-post-type.php';
 

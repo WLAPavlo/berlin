@@ -2,6 +2,8 @@
     Staff Section
 --------------------------------------- */
 
+@import 'mixins';
+
 .staff-section,
 .staff-section-module {
   position: relative;
@@ -49,7 +51,7 @@
     transform: translateX(-50%);
     width: 100vw;
     height: 100%;
-    background: rgba(226, 215, 184, 0.5);
+    background: rgba(226, 215, 184, 0.3);
     z-index: -1;
   }
 
@@ -58,10 +60,6 @@
     z-index: 1;
     padding: 40px 20px;
     overflow: visible;
-  }
-
-  .staff-category-title {
-    background: transparent;
   }
 }
 
@@ -147,28 +145,7 @@
 }
 
 .staff-member__contact {
-  display: inline-block;
-  background: #02627f;
-  color: white;
-  padding: 8px 20px;
-  border-radius: 2rem;
-  text-decoration: none;
-  font-size: 22.2px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 2px solid #02627f;
-  transition: all 0.3s ease;
-  margin: auto;
-  height: auto;
-  margin-bottom: 2rem;
-
-  &:hover {
-    background: transparent;
-    color: $gold;
-    text-decoration: none;
-    border: 2px solid $gold;
-  }
+  @include button-contact;
 }
 
 // Responsive grid adjustments

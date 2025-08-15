@@ -25,6 +25,9 @@ if (is_single() || is_page()) {
     // Only get featured image if it exists, don't force it
     if (has_post_thumbnail()) {
         $banner_image = get_attached_img_url(get_the_ID(), 'full_hd');
+    } else {
+        // Use placeholder image if no featured image
+        $banner_image = IMAGE_PLACEHOLDER;
     }
     $page_title = get_the_title();
 } elseif (is_category()) {
@@ -35,17 +38,26 @@ if (is_single() || is_page()) {
         $banner_image = get_field('featured_image', $category);
         if (is_array($banner_image)) {
             $banner_image = $banner_image['url'];
+        } else {
+            // Use placeholder if no category image
+            $banner_image = IMAGE_PLACEHOLDER;
         }
+    } else {
+        // Use placeholder if no category or image
+        $banner_image = IMAGE_PLACEHOLDER;
     }
 } elseif (is_archive()) {
     $page_title = get_the_archive_title();
+    $banner_image = IMAGE_PLACEHOLDER;
 } elseif (is_search()) {
     $page_title = sprintf(__('Search Results for: %s', 'default'), '<span>' . esc_html(get_search_query()) . '</span>');
+    $banner_image = IMAGE_PLACEHOLDER;
 } elseif (is_404()) {
     $page_title = __('404: Page Not Found', 'default');
+    $banner_image = IMAGE_PLACEHOLDER;
 }
 
-// Use default background from body if no featured image
+// Always use banner image (either featured image or placeholder)
 $banner_style = $banner_image ? bg($banner_image, '', false) : '';
 ?>
 

@@ -187,3 +187,181 @@
 		animation: spin 1s ease-in-out infinite;
 	}
 }
+
+
+
+/* ---------------------------------------
+	Button Mixins
+--------------------------------------- */
+
+// Base button mixin
+@mixin button-base {
+	display: inline-block;
+	margin: 5px 5px 5px 0;
+	padding: 15px 35px;
+	border: 2px solid transparent;
+	border-radius: 50px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 1;
+	box-sizing: border-box;
+}
+
+// Primary button (gold)
+@mixin button-primary {
+	@include button-base;
+	background: #edbd2d;
+	color: #2f3a55;
+	border-color: #edbd2d;
+
+	&:hover, &:focus {
+		background: transparent;
+		color: #edbd2d;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
+		text-decoration: none;
+		border-color: #edbd2d;
+	}
+}
+
+// Secondary button (blue)
+@mixin button-secondary {
+	@include button-base;
+	background: #759dfd;
+	color: #2f3a55;
+	border-color: #759dfd;
+
+	&:hover, &:focus {
+		background: transparent;
+		color: #759dfd;
+		border-color: #759dfd;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(117, 157, 253, 0.4);
+		text-decoration: none;
+	}
+}
+
+// White button (for dark backgrounds)
+@mixin button-white {
+	@include button-base;
+	background: white;
+	color: #2f3a55;
+	border-color: white;
+
+	&:hover, &:focus {
+		background: transparent;
+		color: white;
+		border-color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+		text-decoration: none;
+	}
+}
+
+// Contact button (for staff members)
+@mixin button-contact {
+	display: inline-block;
+	background: #02627f;
+	color: white;
+	padding: 8px 20px;
+	border-radius: 2rem;
+	text-decoration: none;
+	font-size: 22.2px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border: 2px solid #02627f;
+	transition: all 0.3s ease;
+	margin: auto;
+	height: auto;
+	margin-bottom: 2rem;
+
+	&:hover {
+		background: transparent;
+		color: $gold;
+		text-decoration: none;
+		border: 2px solid $gold;
+	}
+}
+
+// Large button variant
+@mixin button-large {
+	padding: 18px 45px;
+	font-size: 18px;
+}
+
+// Small button variant
+@mixin button-small {
+	padding: 10px 25px;
+	font-size: 14px;
+}
+
+// Full width button
+@mixin button-full-width {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+// Slider button (larger for hero sections)
+@mixin button-slider {
+	@include button-base;
+	@include button-large;
+	font-size: 27px;
+	background: #edbd2d;
+	color: #2f3a55;
+	border-color: #edbd2d;
+
+	&:hover, &:focus {
+		background: transparent;
+		color: #edbd2d;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
+		text-decoration: none;
+	}
+
+	@include media-breakpoint-down(md) {
+		padding: 12px 25px;
+		width: 85%;
+		margin: 0 auto;
+		font-size: 18px;
+	}
+
+	&.btn-secondary {
+		background: #759dfd;
+		border-color: #759dfd;
+
+		&:hover {
+			background: transparent;
+			color: #759dfd;
+			border-color: #759dfd;
+			box-shadow: 0 5px 15px rgba(117, 157, 253, 0.4);
+		}
+	}
+}
+
+// Navigation button (for header menu)
+@mixin button-nav {
+	@include button-base;
+	background-color: $gold;
+	color: #0b1837;
+	height: 3.5rem;
+	width: 6rem;
+	border-radius: 0 1.5rem 0 0;
+	font-weight: 700;
+	font-size: 14px;
+	padding: 0;
+	margin: 0 0 0 8px;
+
+	&:hover, &:focus {
+		background: #0b1837;
+		color: $gold;
+		text-decoration: none;
+	}
+}

@@ -1,38 +1,38 @@
+
+
 h1, .h1 {
-  /*basic heading styles*/
-  font-size: 2rem;
+	/*basic heading styles*/
+	font-size: 2rem;
 }
 
 h2, .h2 {
-  /*basic heading styles*/
-  font-size: 1.8rem
+	/*basic heading styles*/
+	font-size: 1.8rem
 }
 
 h3, .h3 {
-  /*basic heading styles*/
-  font-size: 1.6rem
+	/*basic heading styles*/
+	font-size: 1.6rem
 }
 
 h4, .h4 {
-  /*basic heading styles*/
-  font-size: 1.4rem
+	/*basic heading styles*/
+	font-size: 1.4rem
 }
 
 h5, .h5 {
-  /*basic heading styles*/
-  font-size: 1.2rem
+	/*basic heading styles*/
+	font-size: 1.2rem
 }
 
 h6, .h6 {
-  /*basic heading styles*/
-  font-size: 1rem
+	/*basic heading styles*/
+	font-size: 1rem
 }
 
 
 .button {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	display: inline-block;
 	margin: 5px 5px 5px 0;
 	padding: 15px 35px;
 	border: 2px solid transparent;
@@ -47,7 +47,17 @@ h6, .h6 {
 	background: #edbd2d;
 	color: #2f3a55;
 	border-color: #edbd2d;
-	width: 200px;
+	text-align: center;
+	line-height: 1;
+	box-sizing: border-box;
+
+	&:hover, &:focus {
+		background: transparent;
+		color: #edbd2d;
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
+		text-decoration: none;
+	}
 }
 
 .two-columns {
