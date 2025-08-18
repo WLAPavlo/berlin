@@ -657,7 +657,7 @@ body.admin-bar {
 			padding: 0 !important;
 
 			> a {
-				@include button-nav;
+				@include btn-nav;
 				display: flex;
 				align-items: center;
 				justify-content: center;

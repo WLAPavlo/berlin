@@ -6,7 +6,7 @@
 
 // Standard button styling
 .button, .btn {
-  @include button-primary;
+  @include btn-primary;
 }
 
 // Image with Text Module
@@ -83,7 +83,7 @@
   }
 
   .button, .btn {
-    @include button-primary;
+    @include btn-primary;
   }
 }
 
@@ -685,7 +685,7 @@
 }
 
 .custom-contact-form input[type="submit"] {
-  @include button-primary;
+  @include btn-primary;
   background: white;
   color: #1e293b;
   margin: 8px auto 0;
@@ -755,7 +755,7 @@
 
 .gform_wrapper .gform_footer input[type="submit"],
 .gform_wrapper .gform_footer .gform_button {
-  @include button-primary;
+  @include btn-primary;
   background: white;
   color: #1e293b;
   min-width: 120px;

@@ -195,9 +195,7 @@
 --------------------------------------- */
 
 // Base button mixin
-@mixin button-base {
-	display: inline-block;
-	margin: 5px 5px 5px 0;
+@mixin btn-base {
 	padding: 15px 35px;
 	border: 2px solid transparent;
 	border-radius: 50px;
@@ -207,31 +205,26 @@
 	font-size: 16px;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
-	cursor: pointer;
 	text-align: center;
 	line-height: 1;
-	box-sizing: border-box;
 }
 
 // Primary button (gold)
-@mixin button-primary {
-	@include button-base;
+@mixin btn-primary {
 	background: #edbd2d;
 	color: #2f3a55;
 	border-color: #edbd2d;
+	border-radius: 2rem;
 	&:hover, &:focus {
 		background: transparent;
 		color: #edbd2d;
-		transform: translateY(-2px);
-		box-shadow: 0 5px 15px rgba(237, 189, 45, 0.4);
 		text-decoration: none;
 		border-color: #edbd2d;
 	}
 }
 
 // Secondary button (blue)
-@mixin button-secondary {
-	@include button-base;
+@mixin btn-secondary {
 	background: #759dfd;
 	color: #2f3a55;
 	border-color: #759dfd;
@@ -247,8 +240,7 @@
 }
 
 // White button (for dark backgrounds)
-@mixin button-white {
-	@include button-base;
+@mixin btn-white {
 	background: white;
 	color: #2f3a55;
 	border-color: white;
@@ -264,8 +256,7 @@
 }
 
 // Contact button (for staff members)
-@mixin button-contact {
-	display: inline-block;
+@mixin btn-contact {
 	background: #02627f;
 	color: white;
 	padding: 8px 20px;
@@ -276,10 +267,7 @@
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	border: 2px solid #02627f;
-	transition: all 0.3s ease;
-	margin: auto;
-	height: auto;
-	margin-bottom: 2rem;
+	margin: auto auto 2rem;
 
 	&:hover {
 		background: transparent;
@@ -290,32 +278,32 @@
 }
 
 // Large button variant
-@mixin button-large {
+@mixin btn-large {
 	padding: 18px 45px;
 	font-size: 18px;
 }
 
 // Small button variant
-@mixin button-small {
+@mixin btn-small {
 	padding: 10px 25px;
 	font-size: 14px;
 }
 
 // Full width button
-@mixin button-full-width {
+@mixin btn-full-width {
 	width: 100%;
 	margin-left: 0;
 	margin-right: 0;
 }
 
 // Slider button (larger for hero sections)
-@mixin button-slider {
-	@include button-base;
-	@include button-large;
+@mixin btn-slider {
+	padding: 18px 45px;
 	font-size: 27px;
 	background: #edbd2d;
 	color: #2f3a55;
 	border-color: #edbd2d;
+	border-radius: 2rem;
 
 	&:hover, &:focus {
 		background: transparent;
@@ -346,8 +334,7 @@
 }
 
 // Navigation button (for header menu)
-@mixin button-nav {
-	@include button-base;
+@mixin btn-nav {
 	background-color: $gold;
 	color: #0b1837;
 	height: 3.5rem;
@@ -366,8 +353,7 @@
 }
 
 // Search button (for search forms)
-@mixin button-search {
-	@include button-base;
+@mixin btn-search {
 	background: #edbd2d;
 	color: #2f3a55;
 	border-color: #edbd2d;

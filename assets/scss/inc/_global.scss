@@ -149,7 +149,7 @@ ul.pagination {
   }
 
   .search__submit {
-    @include button-search;
+    @include btn-search;
     position: absolute;
     top: 50%;
     right: 5px;
