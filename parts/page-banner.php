@@ -22,13 +22,8 @@ $page_title = '';
 
 // Get featured image and title based on page type
 if (is_single() || is_page()) {
-    // Only get featured image if it exists, don't force it
-    if (has_post_thumbnail()) {
-        $banner_image = get_attached_img_url(get_the_ID(), 'full_hd');
-    } else {
-        // Use placeholder image if no featured image
-        $banner_image = IMAGE_PLACEHOLDER;
-    }
+    // Get featured image or use placeholder
+    $banner_image = has_post_thumbnail() ? get_attached_img_url(get_the_ID(), 'full_hd') : IMAGE_PLACEHOLDER;
     $page_title = get_the_title();
 } elseif (is_category()) {
     $page_title = single_cat_title('', false);
@@ -36,14 +31,12 @@ if (is_single() || is_page()) {
     $category = get_queried_object();
     if ($category && function_exists('get_field')) {
         $banner_image = get_field('featured_image', $category);
-        if (is_array($banner_image)) {
+        if (is_array($banner_image) && !empty($banner_image['url'])) {
             $banner_image = $banner_image['url'];
-        } else {
-            // Use placeholder if no category image
+        } elseif (!$banner_image) {
             $banner_image = IMAGE_PLACEHOLDER;
         }
     } else {
-        // Use placeholder if no category or image
         $banner_image = IMAGE_PLACEHOLDER;
     }
 } elseif (is_archive()) {
@@ -57,8 +50,12 @@ if (is_single() || is_page()) {
     $banner_image = IMAGE_PLACEHOLDER;
 }
 
-// Always use banner image (either featured image or placeholder)
-$banner_style = $banner_image ? bg($banner_image, '', false) : '';
+// Ensure we always have a banner image
+if (!$banner_image) {
+    $banner_image = IMAGE_PLACEHOLDER;
+}
+
+$banner_style = bg($banner_image, '', false);
 ?>
 
 <div id="page-banner" class="page-banner" <?php echo $banner_style; ?>>

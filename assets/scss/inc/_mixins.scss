@@ -12,29 +12,29 @@
 // Encode symbols
 @function url-encode($string) {
 	$map: (
-		"%": "%25",
-		"<": "%3C",
-		">": "%3E",
-		" ": "%20",
-		"!": "%21",
-		"*": "%2A",
-		"'": "%27",
-		'"': "%22",
-		"(": "%28",
-		")": "%29",
-		";": "%3B",
-		":": "%3A",
-		"@": "%40",
-		"&": "%26",
-		"=": "%3D",
-		"+": "%2B",
-		"$": "%24",
-		",": "%2C",
-		"/": "%2F",
-		"?": "%3F",
-		"#": "%23",
-		"[": "%5B",
-		"]": "%5D"
+					"%": "%25",
+					"<": "%3C",
+					">": "%3E",
+					" ": "%20",
+					"!": "%21",
+					"*": "%2A",
+					"'": "%27",
+					'"': "%22",
+					"(": "%28",
+					")": "%29",
+					";": "%3B",
+					":": "%3A",
+					"@": "%40",
+					"&": "%26",
+					"=": "%3D",
+					"+": "%2B",
+					"$": "%24",
+					",": "%2C",
+					"/": "%2F",
+					"?": "%3F",
+					"#": "%23",
+					"[": "%5B",
+					"]": "%5D"
 	);
 
 	$new: $string;
@@ -219,7 +219,6 @@
 	background: #edbd2d;
 	color: #2f3a55;
 	border-color: #edbd2d;
-
 	&:hover, &:focus {
 		background: transparent;
 		color: #edbd2d;
@@ -362,6 +361,28 @@
 	&:hover, &:focus {
 		background: #0b1837;
 		color: $gold;
+		text-decoration: none;
+	}
+}
+
+// Search button (for search forms)
+@mixin button-search {
+	@include button-base;
+	background: #edbd2d;
+	color: #2f3a55;
+	border-color: #edbd2d;
+	padding: 12px 25px;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-radius: 25px;
+	min-width: 120px;
+
+	&:hover, &:focus {
+		background: transparent;
+		color: #edbd2d;
+		border-color: #edbd2d;
 		text-decoration: none;
 	}
 }

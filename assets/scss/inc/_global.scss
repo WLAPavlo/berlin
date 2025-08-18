@@ -127,33 +127,45 @@ ul.pagination {
 
 .search {
   position: relative;
+  margin-bottom: 40px;
 
   .posts-list & {
     margin-bottom: 40px;
   }
-}
 
-.search__input {
-  padding-right: 75px;
-}
+  .search__input {
+    padding-right: 140px;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
 
-.search__submit {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: auto;
-  padding: 10px 15px;
-  cursor: pointer;
-  //font-size: 0;
+    &:focus {
+      outline: none;
+      border-color: #edbd2d;
+      box-shadow: 0 0 0 3px rgba(237, 189, 45, 0.2);
+    }
+  }
 
-  &::after {
-    //content: "\f002";
-    font-family: $fa;
-    font-size: 20px;
-    font-weight: 900;
+  .search__submit {
+    @include button-search;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    height: auto;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 0;
+
+    &::after {
+      display: none;
+    }
   }
 }
+
 
 //use @extend %bgcover; to selector if you need background cover;
 
